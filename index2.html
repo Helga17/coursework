@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/styleinfo.css">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+<section>
+
+</section>
+
+<section>
+    <div id="app">
+        <div class="navbar-top">
+            <a href="maps.html">Головна</a>
+            <a href="#">Про нас</a>
+        </div>
+        <div class="main">
+            <div class="trees">           
+                
+                <div class="tre" v-for="(item, index) in trees">
+                    <div class="tree-image">            
+                        <img v-bind:src="item.src">
+                    </div>
+                    <div>
+                        <h4 class="tree-title">{{item.item}}</h4>
+                        <label>Домен: {{item.domain}}</label><br>
+                        <label>Царство: {{item.kingdom}}</label><br>
+                        <label>Підклас: {{item.department}}</label><br>
+                        <label>Порядок: {{item.order}}</label>
+                    </div>
+                </div>
+            
+            </div>
+                    
+        </div>
+        </div>
+</section>
+
+<!-- <script type="text/javascript" src="js/infotree.js"></script> -->
+<script type="text/javascript" src="js/main.js"></script>
+</body>
+</html>
