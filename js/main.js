@@ -143,8 +143,6 @@ function initMap() {
 
 
 }
-initMap();
-
 
 new Vue({
   el: '#app',
