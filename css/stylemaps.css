@@ -138,8 +138,9 @@ img{
   background-color:#fdfcfc;
 }
 
+
 input{
-  margin-bottom: 5px;
+  float: right;
 }
       
 /*loading image*/
