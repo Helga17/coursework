@@ -5,6 +5,7 @@ body, html {
     background-color: #F5F5F5;
 }
 
+/*стилизируем верхнее меню*/
 .navbar-top{
 	background: #fdfdfd;
     width: 100%;
@@ -57,12 +58,9 @@ h2, h3, h4, h5, h6 {
     flex: 3;
 }
 
-/* Products */
-
 .tre-list {
     margin-right: 1rem;
 }
-
 
 .tre {
     padding: 1rem;

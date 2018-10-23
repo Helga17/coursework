@@ -29,16 +29,18 @@ var trees = [{
     "domain": "Ядерні",
     "kingdom": "Рослини",
     "department": "Квіткові",
-    "order": "Губоцвіті",
+    "order": "Губоцвіт",
+    "state": "Напівсухе",
     "position": {
       lat: 47.848794,
       lng: 35.122589
     },
-    "state": "Напівсухе",
+    
     "src": "http://stroyres.net/wp-content/uploads/2015/08/kak-vyiglyadit-pushistyiy-yasen.jpg"
   }
 ]
 
+/*объявление переменных*/
 var title = document.getElementById("title");
 var domain = document.getElementById("domain");
 var kingdom = document.getElementById("kingdom");
@@ -50,10 +52,11 @@ var normalState = document.getElementById("normalState");
 var goodbadState = document.getElementById("goodbadState");
 var badState = document.getElementById("badState");
 
-
+/*сохранение формы*/
 function saveForm() {
   let state;
   console.log(normalState.checked, goodbadState.checked, badState.checked);
+  /*выбор состояния*/
   if(goodbadState.checked){
     state = "Напівсухе";
   } else if(badState.checked){
@@ -80,11 +83,13 @@ function saveForm() {
   clear();
 }
 
+/*добавляем*/
 function pushArray(data) {
   trees.push(data);
   console.log(trees);
 }
 
+/*очищаем*/
 function clear() {
   title.value = "";
   domain.value = "";
@@ -94,7 +99,7 @@ function clear() {
 }
 
 function initMap() {
-
+/*карта*/
   var map = new google.maps.Map(document.getElementById('map'), {
     center: {
       lat: 47.839160,
@@ -106,7 +111,7 @@ function initMap() {
   map.addListener('click', function (event) {
     //получаем координаты
     let latLng = event.latLng;
-    // открыли форму
+    //открыли форму
     openForm();
     var latitude = document.getElementById('latitude');
     latitude.value = latLng.lat();
@@ -115,11 +120,9 @@ function initMap() {
 
   });
 
-
-
   trees.forEach(element => {
     var url;
-
+    /*выбор картинки по состоянию*/
     switch (element.state) {
       case "Сухе":
         url = "images/bad.png";
@@ -131,6 +134,7 @@ function initMap() {
         url = "images/tree.jpg";
     }
 
+    /*маркер*/
     var marker = new google.maps.Marker({
       position: element.position,
       map: map,
@@ -140,8 +144,6 @@ function initMap() {
       }
     });
   });
-
-
 }
 
 new Vue({
@@ -152,10 +154,9 @@ new Vue({
   mounted: function () {
     this.trees = trees;
   },
-
   methods: {
     say: function (message) {
-      alert(message)
+      alert(message);
     }
   }
 });

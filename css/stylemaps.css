@@ -8,8 +8,7 @@ html, body {
 #map {
   height: 96%;
 }
-
-
+/*стилизируем верхнее меню*/
 .navbar-top{
 	background: #fdfcfc;
   width: 100%;
@@ -25,17 +24,12 @@ html, body {
 	font-size: 18px;
 	padding: 10px;
 }
-/*
-img{
-  max-width: 30px;
-  max-height: 30px;
-}
-*/
+
 .navbar-top a:hover{
 	color: rgb(22, 128, 40);
 }
 
-
+/*стилизируем боковые элементы*/
 .fa.fa-plus-circle{
   position: absolute;
   z-index: 1;
@@ -75,7 +69,7 @@ img{
   z-index: 1;
 }
       
-/* radio button */
+/*стилизируем radio button */
       
 .container {
   z-index: 1;
@@ -109,7 +103,7 @@ img{
   background-color: rgb(17, 150, 83);
 }
       
-/* Style the indicator (dot/circle) */
+/* стилизируем индикатор */
 .container .checkmark:after {
   z-index: 1;
   top: 9px;
@@ -120,7 +114,7 @@ img{
   background: rgb(192, 190, 190);
 }
       
-/* form border */
+/*стилизируем форму*/
 .form-popup {
   z-index: 1;
   display: none;
@@ -138,16 +132,18 @@ img{
   background-color:#fdfcfc;
 }
 
-
 input{
   float: right;
 }
-      
-/*loading image*/
-      
-      
-      
-/*sending*/
+
+/*стилизируем загрузку картинки*/
+.thumb {
+  height: 75px;
+  border: 1px solid #000;
+  margin: 10px 5px 0 0;
+}
+         
+/*стилизируем кнопку создания*/
 .form-container .btn {
   z-index: 1;
   background-color: #4CAF50;
@@ -159,12 +155,11 @@ input{
   margin-bottom:10px;
   opacity: 0.8;
 }
+
 .form-container .btn:hover, .open-button:hover {
   opacity: 1;
   z-index: 1;
 }
-
-
 
 
 /* Large Devices, Wide Screens */
@@ -174,7 +169,6 @@ input{
 
 /* Medium Devices, Desktops */
 @media only screen and (max-width : 992px) {
-
 
 }
 

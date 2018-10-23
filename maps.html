@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -12,8 +11,9 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
-
 <body>
+
+    <!--верхнее меню-->
     <section>
         <div class="navbar-top">
             <a href="index2.html">Щось</a>
@@ -21,8 +21,10 @@
         </div>
     </section>
 
+    <!--карта-->
     <div id="map"></div>
 
+    <!--боковые элементы-->
     <section>
         <div class="panel">
             <a href="#" class="add_marker open-button" onclick="openForm()"><i class="fa fa-plus-circle"></i></a>
@@ -31,11 +33,12 @@
         </div>
     </section>
 
+    <!--форма заполнения данных-->
     <section>
         <div class="form-popup" id="myForm">
             <form class="form-container" id="saveForm">
                 <h2>Оберіть стан дерева</h2>
-
+                <!--выбираем состояние дерева через radio button-->
                 <label class="container">
                     <input type="radio" checked name="radio" id="normalState">
                     <span class="checkmark"></span>Нормальне
@@ -50,10 +53,10 @@
                 </label>
                 <label id="lbltipAddedComment">
                 <h2>Дані про дерево</h2>
+                <!--заполнение формы -->
                  <p>Широта<input type="text" id="latitude"></p> 
                  <p> Довгота <input type="text" id="longitude"></p>
                 </label>
-                
                 <label class="data">
                     <p>Назва <input type="text" id="title"></p>
                     <p>Домен <input type="text" id="domain"></p>
@@ -62,7 +65,9 @@
                     <p>Порядок <input type="text" id="order"></p>
                 </label>
                 <h2>Завантажте фото</h2>
-                <input type="file" name="photos"><br><br>
+                <input type="file" id="files" name="files[]" multiple/>
+                <output id="list"></output>
+                <br><br>
                 <button type="submit" class="btn" onclick="saveForm()">Створити</button>
             </form>
         </div>
@@ -70,9 +75,9 @@
 
 </body>
 <footer>
+    <!--подключаем скрипты-->
     <script src="js/form.js"></script>
-    <script src="js/panel.js"></script>
-    <script type="text/javascript" src="js/infotree.js"></script>
+    <!--<script type="text/javascript" src="js/infotree.js"></script>-->
     <script type="text/javascript" src="js/main.js"></script>
 
     <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDzsFxCMe9JMR-CoSCyfP6jUiGMuXPTazU&callback=initMap"></script>
