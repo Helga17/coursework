@@ -136,11 +136,11 @@ input{
   float: right;
 }
 
-/*стилизируем загрузку картинки*/
+/*стилизируем загрузку картинки
 .thumb {
   height: 120px;
   border: 1px solid #000;
-  margin: 20px 0px 0px 15px;
+  margin: 50px 0px 0px 15px;
 }
 
 .hide{
@@ -175,7 +175,7 @@ input{
   padding: 16px 15px;
   border: none;
   cursor: pointer;
-  width: 99%;
+  width: 99.1%;
   margin-bottom: 10px;
   opacity: 0.9;
 }
