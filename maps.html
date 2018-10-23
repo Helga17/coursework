@@ -12,7 +12,7 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
 <body>
-
+<!--glyphicon glyphicon-menu-hamburger-->
     <!--верхнее меню-->
     <section>
         <div class="navbar-top">
@@ -37,7 +37,7 @@
     <section>
         <div class="form-popup" id="myForm">
             <form class="form-container" id="saveForm">
-                <h2>Оберіть стан дерева</h2>
+                <h3>Оберіть стан дерева</h3>
                 <!--выбираем состояние дерева через radio button-->
                 <label class="container">
                     <input type="radio" checked name="radio" id="normalState">
@@ -52,7 +52,7 @@
                     <span class="checkmark"></span>Сухе
                 </label>
                 <label id="lbltipAddedComment">
-                <h2>Дані про дерево</h2>
+                <h3>Дані про дерево</h3>
                 <!--заполнение формы -->
                  <p>Широта<input type="text" id="latitude"></p> 
                  <p> Довгота <input type="text" id="longitude"></p>
@@ -64,8 +64,10 @@
                     <p>Підклас <input type="text" id="department"></p>
                     <p>Порядок <input type="text" id="order"></p>
                 </label>
-                <h2>Завантажте фото</h2>
-                <input type="file" id="files" name="files[]" multiple/>
+                <h3>Завантажте фото</h3>
+                <br>
+                <input type="file" id="files" class="hide" name="files[]" multiple/>
+                <label for="files" class="selectImg">Вибрати зображення</label>
                 <output id="list"></output>
                 <br><br>
                 <button type="submit" class="btn" onclick="saveForm()">Створити</button>

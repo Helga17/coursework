@@ -2,7 +2,8 @@ html, body {
   height: 100%;
   margin: 0;
   padding: 0;
-	overflow: hidden;
+  overflow: hidden;
+  min-width: 320px;
 }
 
 #map {
@@ -21,7 +22,7 @@ html, body {
 .navbar-top a{
 	text-decoration: none;
 	color: black;
-	font-size: 18px;
+	font-size: 16px;
 	padding: 10px;
 }
 
@@ -78,7 +79,7 @@ html, body {
   padding-left: 35px;
   margin-bottom: 12px;
   cursor: pointer;
-  font-size: 20px;
+  font-size: 16px;
 }
   
 .container input {
@@ -119,17 +120,16 @@ html, body {
   z-index: 1;
   display: none;
   position: fixed;
-  top: 40px;
   left: 0px;
-  border-right: 3px solid #f1f1f1fa;
   z-index: 9;
 }
 .form-container {
   height: 1000px;
   z-index: 1;
-  max-width: 300px;
+  max-width: 310px;
   padding: 10px;
   background-color:#fdfcfc;
+  border-right: 2px solid rgb(232, 235, 243);
 }
 
 input{
@@ -138,22 +138,46 @@ input{
 
 /*стилизируем загрузку картинки*/
 .thumb {
-  height: 75px;
+  height: 120px;
   border: 1px solid #000;
-  margin: 10px 5px 0 0;
+  margin: 20px 0px 0px 15px;
 }
-         
+
+.hide{
+  position: absolute;
+  overflow: hidden;
+  z-index: -1;
+  width: 0.1px;
+  height: 0.1px;
+  opacity: 0;
+}
+
+.form-container .selectImg{
+  cursor: pointer;
+  background-color: #ffb732;
+  padding: 16px 55px;
+  border: none;
+  width: 100%;
+  margin-bottom: 15px;
+  opacity: 0.9;
+}
+
+.form-container .selectImg:hover{
+  opacity: 1;
+  z-index: 1;
+}
+
 /*стилизируем кнопку создания*/
 .form-container .btn {
   z-index: 1;
   background-color: #4CAF50;
   color: white;
-  padding: 16px 20px;
+  padding: 16px 15px;
   border: none;
   cursor: pointer;
-  width: 100%;
-  margin-bottom:10px;
-  opacity: 0.8;
+  width: 99%;
+  margin-bottom: 10px;
+  opacity: 0.9;
 }
 
 .form-container .btn:hover, .open-button:hover {
