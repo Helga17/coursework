@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="js/vue.min.js"></script>
 </head>
 <body>
 <!--glyphicon glyphicon-menu-hamburger-->
@@ -21,69 +22,80 @@
         </div>
     </section>
 
+    <section>
+        <div id = "filterTrees">
+                <input type = "checkbox" id = "normalState" value = "Нормальне" v-model = "search">Нормальне<br>
+                <input type = "checkbox" id = "goodbadState" value = "Напівсухе" v-model = "search">Напівсухе<br>
+                <input type = "checkbox" id = "badState" value = "Сухе" v-model = "search">Сухе<br>
+        
+                <div class = "filterTrees" v-for = "(item, index) in filteredItems">
+                    <div class = "filterTrees-image">
+                        <img v-bind:src = "item.src" width = "30">
+                    </div>
+                </div>
+            </div>
+    </section>
+
     <!--карта-->
     <div id="map"></div>
 
     <!--боковые элементы-->
     <section>
         <div class="panel">
-            <a href="#" class="add_marker open-button" onclick="openForm()"><i class="fa fa-plus-circle"></i></a>
-            <a href="#" class="edit_marker"><i class="fa fa-edit"></i></a>
-            <a href="#" class="delete_marker"><i class="material-icons">highlight_off</i></a>
+            <a href = "#" class = "add_marker open-button" onclick="openForm()"><i class="fa fa-plus-circle"></i></a>
+            <a href = "#" class = "edit_marker"><i class = "fa fa-edit"></i></a>
+            <a href = "#" class = "delete_marker"><i class = "material-icons">highlight_off</i></a>
         </div>
     </section>
 
     <!--форма заполнения данных-->
     <section>
-        <div class="form-popup" id="myForm">
-            <form class="form-container" id="saveForm">
+        <div class = "form-popup" id = "myForm">
+            <form class = "form-container" id = "saveForm">
                 <h3>Оберіть стан дерева</h3>
                 <!--выбираем состояние дерева через radio button-->
-                <label class="container">
-                    <input type="radio" checked name="radio" id="normalState">
-                    <span class="checkmark"></span>Нормальне
+                <label class = "container">
+                    <input type = "radio" checked name = "radio" id = "normalState">
+                    <span class = "checkmark"></span>Нормальне
                 </label>
-                <label class="container">
-                    <input type="radio" name="radio" id="goodbadState">
-                    <span class="checkmark"></span>Напівсухе
+                <label class = "container">
+                    <input type = "radio" name = "radio" id = "goodbadState">
+                    <span class = "checkmark"></span>Напівсухе
                 </label>
-                <label class="container">
-                    <input type="radio" name="radio" id="badState">
-                    <span class="checkmark"></span>Сухе
+                <label class = "container">
+                    <input type = "radio" name = "radio" id = "badState">
+                    <span class = "checkmark"></span>Сухе
                 </label>
-                <label id="lbltipAddedComment">
+                <label id = "lbltipAddedComment">
                 <h3>Дані про дерево</h3>
                 <!--заполнение формы -->
-                 <p>Широта<input type="text" id="latitude"></p> 
-                 <p> Довгота <input type="text" id="longitude"></p>
+                 <p>Широта<input type = "text" id = "latitude"></p> 
+                 <p> Довгота <input type = "text" id = "longitude"></p>
                 </label>
                 <label class="data">
-                    <p>Назва <input type="text" id="title"></p>
-                    <p>Домен <input type="text" id="domain"></p>
-                    <p>Царство <input type="text" id="kingdom"></p>
-                    <p>Підклас <input type="text" id="department"></p>
-                    <p>Порядок <input type="text" id="order"></p>
+                    <p>Назва <input type = "text" id = "title"></p>
+                    <p>Домен <input type = "text" id = "domain"></p>
+                    <p>Царство <input type = "text" id = "kingdom"></p>
+                    <p>Підклас <input type = "text" id = "department"></p>
+                    <p>Порядок <input type = "text" id = "order"></p>
                 </label>
                 <h3>Завантажте фото</h3>
                 <br>
-                <input type="file" id="files" class="hide" name="files[]" multiple/>
-                <label for="files" class="selectImg">Вибрати зображення</label>
-                <output id="list"></output>
+                <input type = "file" id = "files" class = "hide" name = "files[]" multiple/>
+                <label for = "files" class = "selectImg">Вибрати зображення</label>
+                <output id = "list"></output>
                 <br><br>
-                <button type="submit" class="btn" onclick="saveForm()">Створити</button>
+                <button type = "submit" class = "btn" onclick = "saveForm()">Створити</button>
             </form>
         </div>
     </section>
-
+   
 </body>
 <footer>
     <!--подключаем скрипты-->
-    <script src="js/form.js"></script>
-    <!--<script type="text/javascript" src="js/infotree.js"></script>-->
-    <script type="text/javascript" src="js/main.js"></script>
-
-    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDzsFxCMe9JMR-CoSCyfP6jUiGMuXPTazU&callback=initMap"></script>
-    <script src="http://maps.google.cn/maps/api/js?region=cn&language=ukr-CN&key=AIzaSyDzsFxCMe9JMR-CoSCyfP6jUiGMuXPTazU&callback=initMap"></script>
+    <script src = "js/form.js"></script>
+    <script type = "text/javascript" src = "js/main.js"></script>
+    <script async defer src = "https://maps.googleapis.com/maps/api/js?region=cn&language=ukr-CN&key=AIzaSyDzsFxCMe9JMR-CoSCyfP6jUiGMuXPTazU&callback=initMap"></script> 
 </footer>
-
 </html>
+

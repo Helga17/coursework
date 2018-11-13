@@ -1,0 +1,179 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Інвентаризація зелених насаджень</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="js/vue.min.js"></script>
+</head>
+<body>
+        <style>
+            
+            /*стилизация всего блока*/
+            #app{
+                margin-left: 20px;
+                margin-top: 20px;
+            }
+
+            /*стилизация таблицы*/
+            table {
+                font-family: arial, sans-serif;
+                border-collapse: collapse;
+                width: 30%;
+                font-size: 14px;
+            }
+            
+            td, th {
+                border: 1px solid #cabdbd;
+                text-align: left;
+                padding: 8px;
+            }
+            
+            /*стилизация картинки в таблице */
+            .imgTree {
+                width: 30px;
+            }
+
+            /*стилизация блока информации про дерево*/
+            .details{
+                /*position: absolute;
+                top: 2%;*/
+                left: 300px;
+                width: 250px;
+                border: 3px solid #008603;
+                background: #fffbfc;
+                padding: 5px 15px 30px 15px;
+            }
+
+            .infoTree input{
+                float: right;
+            }
+            
+            .fa.fa-edit, .fa.fa-eye{
+                font-size: 25px;
+            }
+
+            .photoTree img{
+                height: 100px;
+            }
+
+            .fa.fa-hand-o-left{
+                font-size: 40px;
+                color: darkgreen;
+                position: relative;
+                left: 200px;
+            } 
+            
+            /*стилизация карты*/
+            #map{
+                width: 100%;
+		height:400px;
+            }
+        </style>
+
+<div id="app">
+    <table v-bind:hidden="!jumper"> 
+        <tr>
+            <th>Назва</th>
+            <th>Висота</th>
+            <th>Діаметр</th>
+            <th>Вік</th>
+            <th>Стан</th>
+            <th>Широта</th>
+            <th>Довгота</th>
+            <th>Фото</th>
+	    <th colspan="3">Навігація</th>
+        </tr>
+       
+        <!--вывод данных с массива-->
+        <tr v-for="(tree, index) in trees">
+            <td>{{tree.item}}</td>
+            <td>{{tree.stature}}</td>
+            <td>{{tree.diameter}}</td>
+            <td>{{tree.age}}</td>
+            <td>{{tree.state}}</td>
+            <td>{{tree.position.lat}}</td>
+            <td>{{tree.position.lng}}</td>
+                <!--вывод картинок с массива-->
+            <td><img v-bind:src="treesImages[tree.state]" class="imgTree"></td>
+                <!--иконки удаления, редактирования, просмотра-->
+            <td><a href="#" class = "delete_marker"  v-on:click.prevent="trees.splice(index,1)"><i class = "material-icons">highlight_off</i></a></td>
+            <td><a href="#" type="button" v-on:click="editing(tree._id)" class = "edit_marker"><i class = "fa fa-edit"></i></a></td>
+            <td><a href="#" type="button" v-on:click="detail(tree._id)"><i class="fa fa-eye" aria-hidden="true"></i></a></td>
+        </tr>
+    </table> 
+<br>
+
+   <!--просмотр информации-->
+   <div class="details" v-bind:hidden="jumper">
+        <div class="photoTree">
+            <img v-bind:src="treesImages[detailStateTrees]">
+                <hr>
+            <div class="infoTree">
+                <p>Назва <input type="text" v-model="detailItemTrees" disabled></p>
+                <p>Висота <input type="text" v-model="detailStatureTrees" disabled></p>
+                <p>Діаметр <input type="text" v-model="detailDiameterTrees" disabled></p>
+                <p>Вік <input type="text" v-model="detailAgeTrees" disabled></p>
+                <p>Стан <input type="text" v-model="detailStateTrees" disabled></p>
+                <p>Широта <input type="text" v-model="detailLatTrees" disabled></p>
+                <p>Довгота <input type="text" v-model="detailLngTrees" disabled></p>
+            </div> 
+        </div> 
+            <a href="#"><i class="fa fa-hand-o-left" aria-hidden="true" v-on:click="back()"></i></a>
+    </div> 
+
+    <!--добавление-->
+    <div id="addTrees" v-if="jumper">
+        <input type="text" v-model="itemTrees">
+        <input type="number" v-model="statureTrees">
+        <input type="number" v-model="diameterTrees">
+        <input type="number" v-model="ageTrees">
+        <select v-model="stateTrees">
+            <option value="" disabled selected>Стан</option>
+            <option value="Нормальне">Нормальне</option>
+            <option value="Напівсухе">Напівсухе</option>
+            <option value="Сухе">Сухе</option>
+        </select>
+        <input type="number" v-model="latTrees">
+        <input type="number" v-model="lngTrees">
+        <button v-on:click = "addTree">Add</button>
+    </div>
+<br>
+    <!--редактирование-->
+   <div id="editTrees" v-if="jumper"> 
+        <input type="text" v-model="editItemTrees">
+        <input type="number" v-model="editStatureTrees">
+        <input type="number" v-model="editDiameterTrees">
+        <input type="number" v-model="editAgeTrees">
+        <select v-model="editStateTrees">
+                <option value="" disabled selected>Стан</option>
+                <option value="Нормальне">Нормальне</option>
+                <option value="Напівсухе">Напівсухе</option>
+                <option value="Сухе">Сухе</option>
+        </select>
+        <input type="number" v-model="editLatTrees">
+        <input type="number" v-model="editLngTrees">
+        <button v-on:click="editTree()">Edit</button>
+    </div>
+<br>
+  
+    </div>
+
+    <!--карта-->
+    <div id="map"></div>
+</body>
+<footer>
+    <!--подключаем скрипты-->
+    <script type = "text/javascript" src = "js/ProbaMaps.js"></script>
+    <script async defer src = "https://maps.googleapis.com/maps/api/js?region=cn&language=ukr-CN&key=AIzaSyDzsFxCMe9JMR-CoSCyfP6jUiGMuXPTazU&callback=initMap"></script>
+</footer>
+</html>
+
+
+
+

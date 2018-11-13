@@ -37,7 +37,60 @@ var trees = [{
     },
     
     "src": "http://stroyres.net/wp-content/uploads/2015/08/kak-vyiglyadit-pushistyiy-yasen.jpg"
-  }
+  },
+  {
+    "item": "Береза",
+    "domain": "Еукаріоти",
+    "kingdom": "Рослини",
+    "department": "Квіткові",
+    "order": "Букоцвіт",
+    "state": "Нормальне",
+    "position": {
+      lat: 47.847178079310076,
+      lng: 35.125194941190784
+    },
+    "src": "http://newacropolis.org.ua/uploads/production/ckeditor/picture/data/8ed/bd5/36-/8edbd536-025a-40bb-a9fb-910f290983b1/content.png"
+  },
+  {
+    "item": "Ясен",
+    "domain": "Ядерні",
+    "kingdom": "Рослини",
+    "department": "Квіткові",
+    "order": "Губоцвіт",
+    "state": "Сухе",
+    "position": {
+      lat: 47.84800098120972,
+      lng: 35.121649300287686
+    },
+    
+    "src": "http://stroyres.net/wp-content/uploads/2015/08/kak-vyiglyadit-pushistyiy-yasen.jpg"
+  },
+  {
+    "item": "Дуб",
+    "domain": "Еукаріоти",
+    "kingdom": "Рослини",
+    "department": "Квіткові",
+    "order": "Букоцвіт",
+    "state": "Напівсухе",
+    "position": {
+      lat: 47.88540829449062,
+      lng: 35.02018328701047
+    },
+    "src": "http://newacropolis.org.ua/uploads/production/ckeditor/picture/data/8ed/bd5/36-/8edbd536-025a-40bb-a9fb-910f290983b1/content.png"
+  },
+  {
+    "item": "Береза",
+    "domain": "Еукаріоти",
+    "kingdom": "Рослини",
+    "department": "Квіткові",
+    "order": "Букоцвіт",
+    "state": "Нормальне",
+    "position": {
+      lat: 47.84776424329802,
+      lng: 35.12263195734249
+    },
+    "src": "http://newacropolis.org.ua/uploads/production/ckeditor/picture/data/8ed/bd5/36-/8edbd536-025a-40bb-a9fb-910f290983b1/content.png"
+  },
 ]
 
 /*объявление переменных*/
@@ -137,10 +190,10 @@ function initMap() {
     /*маркер*/
     var marker = new google.maps.Marker({
       position: element.position,
-      map: map,
+      map: map, 
       icon: {
         url: url,
-        scaledSize: new google.maps.Size(34, 34)
+        scaledSize: new google.maps.Size(22, 22)
       }
     });
   });
@@ -159,4 +212,37 @@ new Vue({
       alert(message);
     }
   }
+});
+
+var v = new Vue({
+  el: '#filterTrees',
+  data: {
+      trees : [
+          {
+              "state": "Нормальне",
+              "src": "images/tree.jpg"
+          },
+          {
+              "state":"Напівсухе",
+              "src": "images/good-bad.png"
+          },
+          {
+              "state":"Сухе",
+              "src": "images/bad.png"
+          }
+      ],
+      search : []
+  },
+  computed:{
+      filteredItems: function(){
+        console.log(this.search);
+          if(this.search.length == 0){
+              return this.trees;
+          }
+          return this.trees.filter(element => {
+              return (this.search.includes(element.state));
+          });
+      }
+      
+}
 });

@@ -9,24 +9,23 @@
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 </head>
 <body>
-
 <section>
     <div id="app">
         <!--верхнее меню-->
-        <div class="navbar-top">
-            <a href="maps.html">Головна</a>
-            <a href="#">Про нас</a>
+        <div class = "navbar-top">
+            <a href = "maps.html">Головна</a>
+            <a href = "#">Про нас</a>
         </div>
         <!--отображение данных про деревья-->
-        <div class="main">
-            <div class="trees">           
+        <div class = "main">
+            <div class = "trees">           
                 
-                <div class="tre" v-for="(item, index) in trees">
-                    <div class="tree-image">            
-                        <img v-bind:src="item.src">
+                <div class = "tre" v-for = "(item, index) in trees">
+                    <div class = "tree-image">            
+                        <img v-bind:src = "item.src">
                     </div>
                     <div>
-                        <h4 class="tree-title">{{item.item}}</h4>
+                        <h4 class = "tree-title">{{item.item}}</h4>
                         <label>Домен: {{item.domain}}</label><br>
                         <label>Царство: {{item.kingdom}}</label><br>
                         <label>Підклас: {{item.department}}</label><br>
@@ -34,16 +33,14 @@
                         <label>Стан: {{item.state}}</label>
                     </div>
                 </div>
-            
+    
             </div>       
         </div>
     </div>
 </section>
-
 </body>
 <footer>
 <!--подключаем скрипты-->
-<script type="text/javascript" src="js/infotree.js"></script> 
 <script type="text/javascript" src="js/main.js"></script>
 </footer>
 </html>

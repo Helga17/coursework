@@ -2,12 +2,14 @@ html, body {
   height: 100%;
   margin: 0;
   padding: 0;
-  overflow: hidden;
+  /*overflow: hidden;*/
   min-width: 320px;
 }
 
-#map {
-  height: 96%;
+/*#map {
+  height: 50%;
+  position: absolute;
+  top: 100px;
 }
 /*стилизируем верхнее меню*/
 .navbar-top{
@@ -30,7 +32,7 @@ html, body {
 	color: rgb(22, 128, 40);
 }
 
-/*стилизируем боковые элементы*/
+/*стилизируем боковые элементы
 .fa.fa-plus-circle{
   position: absolute;
   z-index: 1;
@@ -68,7 +70,7 @@ html, body {
 
 .open-button {
   z-index: 1;
-}
+}*/
       
 /*стилизируем radio button */
       
@@ -132,11 +134,11 @@ html, body {
   border-right: 2px solid rgb(232, 235, 243);
 }
 
-input{
+.form-container input{
   float: right;
 }
 
-/*стилизируем загрузку картинки
+/*стилизируем загрузку картинки*/
 .thumb {
   height: 120px;
   border: 1px solid #000;

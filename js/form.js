@@ -20,7 +20,6 @@ function fileSelect(evt) {
       if (!f.type.match('image.*')) {
         continue;
       }
-
       var reader = new FileReader();
       reader.onload = (function(theFile) {
         return function(e) {
@@ -32,6 +31,5 @@ function fileSelect(evt) {
       })(f);
       reader.readAsDataURL(f);
     }
-  }    
- 
+  }     
   document.getElementById('files').addEventListener('change', fileSelect, false);
