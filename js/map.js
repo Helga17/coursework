@@ -221,7 +221,8 @@ var app = new Vue({
         back: function(){
             this.jumper = true;
         },
-        //init marker
+
+        //
         initTreeMarker: function (tree) {
             var self = this, url;
             //выбор картинки по состоянию
@@ -245,13 +246,13 @@ var app = new Vue({
                 }
             });
         },
-        //delete
+        //удаление
         deleteTree: function(index, arrayKey) {
             debugger;
             this.trees.splice(arrayKey, 1);
             this.markers[index].setMap(null);
         },
-        //clear
+        //очищение
         clear: function () {
             this.itemTrees = "";
             this.statureTrees = "";
@@ -293,9 +294,6 @@ var app = new Vue({
                 self.latTrees = latLng.lat();
                 self.lngTrees = latLng.lng();
             }
-            //открыли форму
-            //openForm();
-
         });
 
         this.trees.forEach((tree) => {

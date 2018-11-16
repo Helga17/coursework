@@ -10,6 +10,9 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <script src="js/vue.min.js"></script>
+    <script
+            src="https://maps.googleapis.com/maps/api/js?region=cn&language=ukr-CN&key=AIzaSyDzsFxCMe9JMR-CoSCyfP6jUiGMuXPTazU"
+    ></script>
 </head>
 <body>
         <style>
@@ -102,7 +105,7 @@
                 <!--вывод картинок с массива-->
             <td><img v-bind:src="treesImages[tree.state]" class="imgTree"></td>
                 <!--иконки удаления, редактирования, просмотра-->
-            <td><a href="#" class = "delete_marker"  v-on:click.prevent="trees.splice(index,1)"><i class = "material-icons">highlight_off</i></a></td>
+            <td><a href="#" type="button" v-on:click="deleteTree(tree._id, index)" class = "delete_marker"><i class = "material-icons">highlight_off</i></a></td>
             <td><a href="#" type="button" v-on:click="editing(tree._id)" class = "edit_marker"><i class = "fa fa-edit"></i></a></td>
             <td><a href="#" type="button" v-on:click="detail(tree._id)"><i class="fa fa-eye" aria-hidden="true"></i></a></td>
         </tr>
@@ -170,7 +173,6 @@
 <footer>
     <!--подключаем скрипты-->
     <script type = "text/javascript" src = "js/map.js"></script>
-    <script async defer src = "https://maps.googleapis.com/maps/api/js?region=cn&language=ukr-CN&key=AIzaSyDzsFxCMe9JMR-CoSCyfP6jUiGMuXPTazU&callback=initMap"></script>
 </footer>
 </html>
 
