@@ -100,7 +100,7 @@ var app = new Vue({
     data: {
         //объявление переменных
         jumper: true,
-        //show: true,
+        show: true,
         trees : [],
         map: {},
         markers: [],
@@ -236,6 +236,9 @@ var app = new Vue({
                     scaledSize: new google.maps.Size(22, 22)
                 }
             });
+            this.markers[tree._id].addListener('click', () => {
+                self.detail(tree._id);
+            })
         },
         //удаление
         deleteTree: function(index, arrayKey) {
@@ -263,6 +266,7 @@ var app = new Vue({
     },
     //
     computed:{
+        //фильтрация
         filteredItems: function() {
 
             if(!this.search.length){
@@ -280,7 +284,9 @@ var app = new Vue({
             filtersTrees.forEach((tree) => {
                 this.markers[tree._id].setMap(this.map);
             });
+           this.show = false; 
         } 
+        
     },
     //
     mounted: function () {

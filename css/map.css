@@ -1,0 +1,73 @@
+ /*стилизация всего блока*/
+ #app{
+    margin-left: 20px;
+    margin-top: 20px;
+}
+
+/*стилизация таблицы*/
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 48%;
+    font-size: 14px;
+}
+
+td, th {
+    border: 1px solid #cabdbd;
+    text-align: left;
+    padding: 8px;
+}
+
+/*стилизация картинки в таблице */
+.imgTree {
+    width: 30px;
+}
+
+/*стилизация блока информации про дерево*/
+.details{
+    /*position: absolute;
+    top: 2%;*/
+    left: 300px;
+    width: 290px;
+    border: 3px solid #008603;
+    background: #fffbfc;
+    padding: 5px 15px 30px 15px;
+}
+
+.infoTree input{
+    float: right;
+}
+
+input{
+    width: 125px;
+}
+
+.fa.fa-edit, .fa.fa-eye{
+    font-size: 25px;
+}
+
+.photoTree img{
+    height: 100px;
+}
+
+.fa.fa-hand-o-left{
+    font-size: 40px;
+    color: darkgreen;
+    position: relative;
+    left: 200px;
+} 
+/*фильтрация*/
+.glyphicon.glyphicon-filter{
+    font-size: 30px;
+}
+.filters{
+    position: absolute;
+    top: 25px;
+    right: 5%;
+}
+
+/*стилизация карты*/
+#map{
+    width: 100%;
+    height:400px;
+}
