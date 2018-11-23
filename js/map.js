@@ -36,7 +36,6 @@ var trees = [
             lat: 47.848794,
             lng: 35.122589
         },
-
         "src": "http://galerey-room.ru/images/065958_1385524798.png"
     },
     {
@@ -63,7 +62,6 @@ var trees = [
             lat: 47.84800098120972,
             lng: 35.121649300287686
         },
-
         "src": "http://stroyres.net/wp-content/uploads/2015/08/kak-vyiglyadit-pushistyiy-yasen.jpg"
     },
     {
@@ -92,7 +90,6 @@ var trees = [
         },
         "src": "http://sadimsami.ru/wp-content/uploads/2017/03/vishnya-morozovka.jpg"
     },
-    
 ];
 
 var app = new Vue({
@@ -285,8 +282,7 @@ var app = new Vue({
                 this.markers[tree._id].setMap(this.map);
             });
            this.show = false; 
-        } 
-        
+        }  
     },
     //
     mounted: function () {
@@ -314,7 +310,4 @@ var app = new Vue({
             this.initTreeMarker(tree);
         });
     }
-
 });
-
-

@@ -1,0 +1,38 @@
+/* table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 48%;
+    font-size: 14px;
+}
+
+td, th {
+    border: 1px solid #cabdbd;
+    text-align: left;
+    padding: 8px;
+} */
+
+/*стилизация картинки в таблице */
+.imgTree {
+    width: 30px;
+}
+
+table.customTable {
+    width: 100%;
+    background-color: #FFFFFF;
+    border-collapse: collapse;
+    border-width: 2px;
+    border-color: #053013;
+    border-style: solid;
+    color: #000000;
+  }
+  
+  table.customTable td, table.customTable th {
+    border-width: 2px;
+    border-color: #053013;
+    border-style: solid;
+    padding: 5px;
+  }
+  
+  table.customTable thead {
+    background-color: #11B811;
+  }

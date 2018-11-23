@@ -17,6 +17,13 @@
     ></script>
 </head>
 <body>
+    <section>
+        <div class="navbar-top">
+            <a href="index2.html">Щось</a>
+            <a href="table.html">Таблиця</a>
+        </div>
+    </section>
+
     <div id="app">
     <table v-bind:hidden="!jumper"> 
         <tr>
@@ -66,9 +73,9 @@
             <a href="#"><i class="fa fa-hand-o-left" aria-hidden="true" v-on:click="back()"></i></a>
     </div> 
     <!--фильтрация-->
-    <div class="filters"  v-if="show">
+    <div class="filters" v-on:click="show = !show">
         <a href="#"><span class="glyphicon glyphicon-filter"></span></a>
-        <div id = "filterTrees" v-bind:hidden="show" v-else>
+        <div id = "filterTrees" v-bind:hidden="show">
             <input type = "checkbox" id = "normalState" value = "Нормальне" v-model = "search">Нормальне<br>
             <input type = "checkbox" id = "goodbadState" value = "Напівсухе" v-model = "search">Напівсухе<br>
             <input type = "checkbox" id = "badState" value = "Сухе" v-model = "search">Сухе<br>
@@ -118,7 +125,3 @@
     <script type = "text/javascript" src = "js/map.js"></script>
 </footer>
 </html>
-
-
-
-
