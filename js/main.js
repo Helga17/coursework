@@ -93,221 +93,221 @@ var trees = [
 ];
 
 var app = new Vue({
-  el: '#app',
-  data: {
-      //объявление переменных
-      jumper: true,
-      show: true,
-      trees : [],
-      map: {},
-      markers: [],
-      search : [],
-      treesImages:{
-          "Нормальне": "images/tree.jpg",
-          "Напівсухе": "images/good-bad.png",
-          "Сухе": "images/bad.png",
-      },
-      itemTrees: "",
-      statureTrees: "",
-      diameterTrees: "",
-      ageTrees: "",
-      stateTrees: "",
-      latTrees: "",
-      lngTrees: "",
-      srcTrees: "images/tree.jpg",
-      id: 0,
-      editId: 0,
-      //для редактирования
-      isEdit: false,
-      editTreeElement:"",
-      editItemTrees: "",
-      editStatureTrees: "",
-      editDiameterTrees: "",
-      editAgeTrees: "",
-      editStateTrees: "",
-      editLatTrees: "",
-      editLngTrees: "",
-      //для просмотра информации
-      detailId: 0,
-      detailItemTrees: "",
-      detailStatureTrees: "",
-      detailDiameterTrees: "",
-      detailAgeTrees: "",
-      detailStateTrees: "",
-      detailLatTrees: "",
-      detailLngTrees: ""
-  },
-  methods: {
-      //добавление данных про дерево
-      addTree: function(){
-          let position = {
-                  "lat": this.latTrees,
-                  "lng": this.lngTrees
-              },
-              tree = {
-                  "item": this.itemTrees,
-                  "stature": this.statureTrees,
-                  "diameter": this.diameterTrees,
-                  "age": this.ageTrees,
-                  "state": this.stateTrees,
-                  "position": position,
-                  "src": "images/tree.jpg"
-              };
-          this.trees.push(tree);
-          this.initTreeMarker(tree);
-          this.clear();
-      },
-      //считывание данных для редактирования
-      editing: function(index){
-          var treeEdit = this.trees.find(function(el){
-              return el._id === index;
-          });
-          this.editTreeElement = treeEdit;
-          this.editId = index;
-          this.editItemTrees = treeEdit.item;
-          this.editStatureTrees = treeEdit.stature;
-          this.editDiameterTrees = treeEdit.diameter;
-          this.editAgeTrees = treeEdit.age;
-          this.editStateTrees = treeEdit.state;
-          this.editLatTrees = treeEdit.position.lat;
-          this.editLngTrees = treeEdit.position.lng;
-          this.isEdit = true;
-      },
-      //редактирование данных
-      editTree: function() {
-          var treeEdit = this.editTreeElement,
-              position = {
-                  "lat": this.editLatTrees,
-                  "lng": this.editLngTrees
-              };
-          treeEdit.item = this.editItemTrees;
-          treeEdit.stature = this.editStatureTrees;
-          treeEdit.diameter = this.editDiameterTrees;
-          treeEdit.age = this.editAgeTrees;
-          treeEdit.state = this.editStateTrees;
-          treeEdit.position = position;
-          this.isEdit = false;
-          this.markers[this.editId].setPosition(position);
-          this.clear();
-      },
+    el: '#app',
+    data: {
+        //объявление переменных
+        jumper: true,
+        show: true,
+        trees : [],
+        map: {},
+        markers: [],
+        search : [],
+        treesImages:{
+            "Нормальне": "images/tree.jpg",
+            "Напівсухе": "images/good-bad.png",
+            "Сухе": "images/bad.png",
+        },
+        itemTrees: "",
+        statureTrees: "",
+        diameterTrees: "",
+        ageTrees: "",
+        stateTrees: "",
+        latTrees: "",
+        lngTrees: "",
+        srcTrees: "images/tree.jpg",
+        id: 0,
+        editId: 0,
+        //для редактирования
+        isEdit: false,
+        editTreeElement:"",
+        editItemTrees: "",
+        editStatureTrees: "",
+        editDiameterTrees: "",
+        editAgeTrees: "",
+        editStateTrees: "",
+        editLatTrees: "",
+        editLngTrees: "",
+        //для просмотра информации
+        detailId: 0,
+        detailItemTrees: "",
+        detailStatureTrees: "",
+        detailDiameterTrees: "",
+        detailAgeTrees: "",
+        detailStateTrees: "",
+        detailLatTrees: "",
+        detailLngTrees: ""
+    },
+    methods: {
+        //добавление данных про дерево
+        addTree: function(){
+            let position = {
+                    "lat": this.latTrees,
+                    "lng": this.lngTrees
+                },
+                tree = {
+                    "item": this.itemTrees,
+                    "stature": this.statureTrees,
+                    "diameter": this.diameterTrees,
+                    "age": this.ageTrees,
+                    "state": this.stateTrees,
+                    "position": position,
+                    "src": "images/tree.jpg"
+                };
+            this.trees.push(tree);
+            this.initTreeMarker(tree);
+            this.clear();
+        },
+        //считывание данных для редактирования
+        editing: function(index){
+            var treeEdit = this.trees.find(function(el){
+                return el._id === index;
+            });
+            this.editTreeElement = treeEdit;
+            this.editId = index;
+            this.editItemTrees = treeEdit.item;
+            this.editStatureTrees = treeEdit.stature;
+            this.editDiameterTrees = treeEdit.diameter;
+            this.editAgeTrees = treeEdit.age;
+            this.editStateTrees = treeEdit.state;
+            this.editLatTrees = treeEdit.position.lat;
+            this.editLngTrees = treeEdit.position.lng;
+            this.isEdit = true;
+        },
+        //редактирование данных
+        editTree: function() {
+            var treeEdit = this.editTreeElement,
+                position = {
+                    "lat": this.editLatTrees,
+                    "lng": this.editLngTrees
+                };
+            treeEdit.item = this.editItemTrees;
+            treeEdit.stature = this.editStatureTrees;
+            treeEdit.diameter = this.editDiameterTrees;
+            treeEdit.age = this.editAgeTrees;
+            treeEdit.state = this.editStateTrees;
+            treeEdit.position = position;
+            this.isEdit = false;
+            this.markers[this.editId].setPosition(position);
+            this.clear();
+        },
       //просмотр информации про дерево
-      detail: function(index){
-          let treeDetail = this.trees.find(function(el){
-              return el._id === index;
-          });
-          let position = treeDetail.position;
-          this.detailId = index;
-          this.detailItemTrees = treeDetail.item;
-          this.detailStatureTrees = treeDetail.stature;
-          this.detailDiameterTrees = treeDetail.diameter;
-          this.detailAgeTrees = treeDetail.age;
-          this.detailStateTrees = treeDetail.state;
-          this.detailLatTrees = position.lat;
-          this.detailLngTrees = position.lng;
+        detail: function(index){
+            let treeDetail = this.trees.find(function(el){
+                return el._id === index;
+            });
+            let position = treeDetail.position;
+            this.detailId = index;
+            this.detailItemTrees = treeDetail.item;
+            this.detailStatureTrees = treeDetail.stature;
+            this.detailDiameterTrees = treeDetail.diameter;
+            this.detailAgeTrees = treeDetail.age;
+            this.detailStateTrees = treeDetail.state;
+            this.detailLatTrees = position.lat;
+            this.detailLngTrees = position.lng;
 
-          this.jumper = false;
-      },
-      back: function(){
-          this.jumper = true;
-      },
-      //
-      initTreeMarker: function (tree) {
-          var self = this, url;
-          //выбор картинки по состоянию
-          switch (tree.state) {
-              case "Сухе":
-                  url = "images/bad.png";
-                  break;
-              case "Напівсухе":
-                  url = "images/good-bad.png";
-                  break;
-              default:
-                  url = "images/tree.jpg";
-          }
-          //маркер
-          this.markers[tree._id] = new google.maps.Marker({
-              position: tree.position,
-              map: self.map,
-              icon: {
-                  url: url,
-                  scaledSize: new google.maps.Size(22, 22)
-              }
-          });
-          this.markers[tree._id].addListener('click', () => {
-              self.detail(tree._id);
-          })
-      },
-      //удаление
-      deleteTree: function(index, arrayKey) {
-          this.trees.splice(arrayKey, 1);
-          this.markers[index].setMap(null);
-      },
-      //очищение
-      clear: function () {
-          this.itemTrees = "";
-          this.statureTrees = "";
-          this.diameterTrees = "";
-          this.ageTrees = "";
-          this.stateTrees = "";
-          this.latTrees = "";
-          this.lngTrees = "";
-          this.editTreeElement = "";
-          this.editItemTrees = "";
-          this.editStatureTrees = "";
-          this.editDiameterTrees = "";
-          this.editAgeTrees = "";
-          this.editStateTrees = "";
-          this.editLatTrees = "";
-          this.editLngTrees = "";
-      }
-  },
-  //
-  computed:{
-      //фильтрация
-      filteredItems: function() {
+            this.jumper = false;
+        },
+        back: function(){
+            this.jumper = true;
+        },
+        //
+        initTreeMarker: function (tree) {
+            var self = this, url;
+            //выбор картинки по состоянию
+            switch (tree.state) {
+                case "Сухе":
+                    url = "images/bad.png";
+                    break;
+                case "Напівсухе":
+                    url = "images/good-bad.png";
+                    break;
+                default:
+                    url = "images/tree.jpg";
+            }
+            //маркер
+            this.markers[tree._id] = new google.maps.Marker({
+                position: tree.position,
+                map: self.map,
+                icon: {
+                    url: url,
+                    scaledSize: new google.maps.Size(22, 22)
+                }
+            });
+            this.markers[tree._id].addListener('click', () => {
+                self.detail(tree._id);
+            })
+        },
+        //удаление
+        deleteTree: function(index, arrayKey) {
+            this.trees.splice(arrayKey, 1);
+            this.markers[index].setMap(null);
+        },
+        //очищение
+        clear: function () {
+            this.itemTrees = "";
+            this.statureTrees = "";
+            this.diameterTrees = "";
+            this.ageTrees = "";
+            this.stateTrees = "";
+            this.latTrees = "";
+            this.lngTrees = "";
+            this.editTreeElement = "";
+            this.editItemTrees = "";
+            this.editStatureTrees = "";
+            this.editDiameterTrees = "";
+            this.editAgeTrees = "";
+            this.editStateTrees = "";
+            this.editLatTrees = "";
+            this.editLngTrees = "";
+        }
+    },
+    //
+    computed:{
+        //фильтрация
+        filteredItems: function() {
 
-          if(!this.search.length){
-              return this.trees;
-          }
-      
-          this.markers.forEach((marker, id) => {
-              this.markers[id].setMap(null);
-          });
-      
-          var filtersTrees = this.trees.filter(element => {
-              return (app.search.includes(element.state));
-          });
-          
-          filtersTrees.forEach((tree) => {
-              this.markers[tree._id].setMap(this.map);
-          });
-         this.show = false; 
-      }  
-  },
-  //
-  mounted: function () {
-      var self = this;
-      this.trees = trees;
-      this.map = new google.maps.Map(document.getElementById('map'), {
-          center: {
-              lat: 47.839160,
-              lng: 35.140104
-          },
-          zoom: 13
-      });
-      this.map.addListener('click', function (event) {
-          //получаем координаты
-          var latLng = event.latLng;
-          if (self.isEdit) {
+            if(!this.search.length){
+                return this.trees;
+            }
+        
+            this.markers.forEach((marker, id) => {
+                this.markers[id].setMap(null);
+            });
+        
+            var filtersTrees = this.trees.filter(element => {
+                return (app.search.includes(element.state));
+            });
+            
+            filtersTrees.forEach((tree) => {
+                this.markers[tree._id].setMap(this.map);
+            });
+            this.show = false; 
+        }  
+    },
+    //
+    mounted: function () {
+        var self = this;
+        this.trees = trees;
+        this.map = new google.maps.Map(document.getElementById('map'), {
+            center: {
+                lat: 47.839160,
+                lng: 35.140104
+            },
+            zoom: 13
+        });
+        this.map.addListener('click', function (event) {
+            //получаем координаты
+            var latLng = event.latLng;
+            if (self.isEdit) {
               self.editLatTrees = latLng.lat();
               self.editLngTrees = latLng.lng();
-          } else {
+            } else {
               self.latTrees = latLng.lat();
               self.lngTrees = latLng.lng();
-          }
-      });
-      this.trees.forEach((tree) => {
-          this.initTreeMarker(tree);
-      });
-  }
+            }
+        });
+        this.trees.forEach((tree) => {
+            this.initTreeMarker(tree);
+        });
+    }
 });

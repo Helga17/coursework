@@ -109,6 +109,41 @@ input{
   z-index: 1;
 }
 
+/*  */
+.elements a{
+  text-decoration: none;
+  color:#616060;
+  font-size: 30px;
+}
+
+.fa.fa-plus{
+  position: absolute;
+  left: 10px;
+  top: 120px;
+  z-index: 1;
+}
+
+.fa.fa-plus:hover,
+.fa.fa-pencil:hover,
+.fa.fa-times:hover{
+  color: black;
+}
+
+.fa.fa-pencil{
+  position: absolute;
+  left: 10px;
+  top: 160px;
+  z-index: 1;
+}
+
+.fa.fa-times{
+  position: absolute;
+  left: 10px;
+  top: 200px;
+  z-index: 1;
+}
+
+
 /* стилизация карты */
 #map{
   width: 100%;
