@@ -6,16 +6,21 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
     <link rel="stylesheet" href="css/styleinfo.css">
+    <link href="https://fonts.googleapis.com/css?family=Merriweather" rel="stylesheet">
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 </head>
 <body>
 <section>
     <div id="app">
         <!--верхнее меню-->
-        <div class = "navbar-top">
-            <a href = "map.html">Головна</a>
-            <a href="table.html">Таблиця</a>
-        </div>
+        <div class="navbar-top">
+                <a href="#" class="brand-logo">Logo</a>
+                <a href="karta.html">Головна</a>
+                <a href="table.html">Таблиця</a>
+                <a href="modal.html"><i class="fa fa-child" aria-hidden="true"></i></a>
+            </div>
         <!--отображение данных про деревья-->
         <div class = "main">
             <div class = "trees">           
@@ -26,11 +31,10 @@
                     </div>
                     <div>
                         <h4 class = "tree-title">{{item.item}}</h4>
-                        <label>Домен: {{item.domain}}</label><br>
-                        <label>Царство: {{item.kingdom}}</label><br>
-                        <label>Підклас: {{item.department}}</label><br>
-                        <label>Порядок: {{item.order}}</label><br>
-                        <label>Стан: {{item.state}}</label>
+                        <label>Висота: {{item.stature}}</label><br>
+                        <label>Діаметр: {{item.diameter}}</label><br>
+                        <label>Вік: {{item.age}}</label><br>
+                        <label>Стан: {{item.state}}</label><br>
                     </div>
                 </div>
     
@@ -41,6 +45,6 @@
 </body>
 <footer>
 <!--подключаем скрипты-->
-<script type="text/javascript" src="js/main.js"></script>
+<script type="text/javascript" src="js/map.js"></script>
 </footer>
 </html>

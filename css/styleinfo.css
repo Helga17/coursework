@@ -5,37 +5,42 @@ body, html {
     background-color: #F5F5F5;
 }
 
-/*стилизируем верхнее меню*/
+/* стилизация верхнего меню */
 .navbar-top{
-	background: #fdfdfd;
     width: 100%;
-	height: 10px;
+	height: 25px;
 	text-align: right;
-	padding-bottom: 10px;
-	padding-top: 10px;
+    padding: 10px 25px 0px 0px;
 } 
 
 .navbar-top a{
 	text-decoration: none;
 	color: black;
-	font-size: 18px;
-	margin-right: 15px;
+	font-size: 16px;
+    padding-left: 10px;
 }
 
 .navbar-top a:hover{
-	color: rgb(22, 128, 40);
+    text-decoration: none;
+	color: rgb(25, 167, 49);
 }
 
-/* Generic styling */
+.fa.fa-child{
+    font-size: 22px;
+    color:#176306;
+} 
 
-h2, h3, h4, h5, h6 {
-    font-family: 'Montserrat', sans-serif;
+.fa.fa-child:hover{
+    color :#3cae22;
+} 
+
+.brand-logo{
+    float: left;
 }
 
 /* Sections */
 
 #app {
-    margin: 0 2rem;
     padding: 0 2rem;
     background-color: white;
     display: flex;
@@ -67,7 +72,7 @@ h2, h3, h4, h5, h6 {
     border: 1px solid #E9E9E9;
     border-radius: 2px;
     overflow: auto;
-    margin: 1rem 1rem 1rem 0;
+    margin: 1rem 1rem 1rem 0rem;
     display: flex;
     flex-flow: row nowrap;
 }

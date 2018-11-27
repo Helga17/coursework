@@ -1,35 +1,118 @@
-html, body {
-  height: 100%;
-  margin: 0;
-  padding: 0;
-  /*overflow: hidden;*/
-  min-width: 320px;
+body{
+  max-width: 1920px;
+  overflow: hidden;
 }
 
-/*#map {
-  height: 50%;
-  position: absolute;
-  top: 100px;
+#app{
+  font-size: 16px;
+  font-family: 'Merriweather', serif;
 }
-/*стилизируем верхнее меню*/
+
+/* стилизация верхнего меню */
 .navbar-top{
-	background: #fdfcfc;
+background: #ffffff;
   width: 100%;
-	height: 10px;
-	text-align: right;
-	padding-bottom: 20px;
-  padding-top: 10px;
+height: 45px;
+text-align: right;
+  padding: 10px 25px 0px 0px;
 } 
 
 .navbar-top a{
-	text-decoration: none;
-	color: black;
-	font-size: 16px;
-	padding: 10px;
+text-decoration: none;
+color: black;
+font-size: 16px;
+  padding-left: 10px;
 }
 
 .navbar-top a:hover{
-	color: rgb(22, 128, 40);
+  text-decoration: none;
+color: rgb(25, 167, 49);
+}
+
+.fa.fa-child{
+  font-size: 22px;
+  color:#176306;
+} 
+
+.fa.fa-child:hover{
+  color :#3cae22;
+} 
+
+.brand-logo{
+  float: left;
+}
+
+/*  */
+.fa.fa-table{
+  position: absolute;
+  right: 55px;
+  top: 60px;
+  z-index: 1;
+  font-size: 30px;
+  color :#616060;
+}
+
+.fa.fa-table:hover{
+  color: black;
+}
+/*  */
+.details{
+  z-index: 1;
+  position: absolute;
+  top: 18%;
+  left: 0px;
+  width: 290px;
+  border: 3px solid #008603;
+  background: #f8f7f7;
+  padding: 5px 15px 30px 15px;
+  font-size: 16px;
+  font-family: 'Spectral', serif;
+  /* font-family: 'PT Serif Caption', serif; */
+}
+
+.infoTree input{
+  float: right;
+}
+
+input{
+  width: 160px;
+}
+
+.fa.fa-hand-o-left{
+  font-size: 40px;
+  color: darkgreen;
+  position: relative;
+  left: 200px;
+} 
+
+.photoTree img{
+  height: 100px;
+}
+
+/*  */
+.glyphicon.glyphicon-filter{
+  position: absolute;
+  right: 6px;
+  font-size: 30px;
+  color :#616060;
+  z-index: 1;
+}
+
+.glyphicon.glyphicon-filter:hover{
+  color: black;
+}
+
+.filters{
+  position: absolute;
+  right: 10px;
+  top: 100px;
+  z-index: 1;
+}
+
+/* стилизация карты */
+#map{
+  width: 100%;
+  height: 930px;
 }
 
 /*стилизируем боковые элементы
@@ -74,7 +157,7 @@ html, body {
       
 /*стилизируем radio button */
       
-.container {
+/* .container {
   z-index: 1;
   display: block;
   position: relative;
@@ -89,10 +172,10 @@ html, body {
   position: absolute;
   opacity: 0;
   cursor: pointer;
-}
+} */
       
 /* Create a custom radio button */
-.checkmark {
+/* .checkmark {
   z-index: 1;
   position: absolute;
   top: 0;
@@ -104,10 +187,10 @@ html, body {
 
 .container input:checked ~ .checkmark {
   background-color: rgb(17, 150, 83);
-}
+} */
       
 /* стилизируем индикатор */
-.container .checkmark:after {
+/* .container .checkmark:after {
   z-index: 1;
   top: 9px;
   left: 9px;
@@ -115,10 +198,10 @@ html, body {
   height: 8px;
   border-radius: 50%;
   background: rgb(192, 190, 190);
-}
+} */
       
 /*стилизируем форму*/
-.form-popup {
+/* .form-popup {
   z-index: 1;
   display: none;
   position: fixed;
@@ -136,10 +219,10 @@ html, body {
 
 .form-container input{
   float: right;
-}
+} */
 
 /*стилизируем загрузку картинки*/
-.thumb {
+/* .thumb {
   height: 120px;
   border: 1px solid #000;
   margin: 50px 0px 0px 15px;
@@ -167,10 +250,10 @@ html, body {
 .form-container .selectImg:hover{
   opacity: 1;
   z-index: 1;
-}
+} */
 
 /*стилизируем кнопку создания*/
-.form-container .btn {
+/* .form-container .btn {
   z-index: 1;
   background-color: #4CAF50;
   color: white;
@@ -185,7 +268,7 @@ html, body {
 .form-container .btn:hover, .open-button:hover {
   opacity: 1;
   z-index: 1;
-}
+} */
 
 
 /* Large Devices, Wide Screens */
