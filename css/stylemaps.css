@@ -55,12 +55,13 @@ color: rgb(25, 167, 49);
 .fa.fa-table:hover{
   color: black;
 }
-/*  */
+/* @ToDo add Drug and Drops for this item */
 .details{
   z-index: 1;
   position: absolute;
-  top: 18%;
-  left: 0px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   width: 290px;
   border: 3px solid #008603;
   background: #f8f7f7;
@@ -86,6 +87,7 @@ input{
 } 
 
 .photoTree img{
+  border: #0b2e13;
   height: 100px;
 }
 
@@ -141,6 +143,15 @@ input{
   left: 10px;
   top: 200px;
   z-index: 1;
+}
+
+.nav-bar {
+  display: flex;
+  justify-content: space-around;
+}
+
+.this-link a {
+  color: #ff4f00;
 }
 
 
