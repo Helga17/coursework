@@ -14,62 +14,8 @@ let app = new Vue({
         types: [],
         states: [],
         changedTree: {},
-
-
     },
     methods: {
-
-
-        //добавление данных про дерево
-        addTree: function() {
-            let position = {
-                    "lat": this.latTrees,
-                    "lng": this.lngTrees
-                },
-                tree = {
-                    "item": this.itemTrees,
-                    "stature": this.statureTrees,
-                    "diameter": this.diameterTrees,
-                    "state": this.stateTrees,
-                    "position": position,
-                    "src": "images/tree.jpg"
-                };
-            this.trees.push(tree);
-            this.initTreeMarker(tree);
-            this.clear();
-        },
-        //считывание данных для редактирования
-        editing: function(index){
-            let treeEdit = this.trees.find(function(el){
-                return el.id === index;
-            });
-            this.editTreeElement = treeEdit;
-            this.editId = index;
-            this.editItemTrees = treeEdit.item;
-            this.editStatureTrees = treeEdit.stature;
-            this.editDiameterTrees = treeEdit.diameter;
-            this.editStateTrees = treeEdit.state;
-            this.editLatTrees = treeEdit.position.lat;
-            this.editLngTrees = treeEdit.position.lng;
-            this.isEdit = true;
-        },
-        //редактирование данных
-        editTree: function() {
-            var treeEdit = this.editTreeElement,
-                position = {
-                    "lat": this.editLatTrees,
-                    "lng": this.editLngTrees
-                };
-            treeEdit.item = this.editItemTrees;
-            treeEdit.stature = this.editStatureTrees;
-            treeEdit.diameter = this.editDiameterTrees;
-            treeEdit.state = this.editStateTrees;
-            treeEdit.position = position;
-            this.isEdit = false;
-            this.markers[this.editId].setPosition(position);
-            this.clear();
-        },
-
         getDefaultTree: function () {
             return {
                 image: null,
@@ -95,6 +41,7 @@ let app = new Vue({
         openWindowForCreating: function() {
             this.refreshData();
             this.isNew = true;
+            this.hiddenWindow = false;
         },
 
         //сохраняет введенные данные
@@ -138,7 +85,7 @@ let app = new Vue({
                     }
                     let id = tree.id;
                     self.trees.forEach((data, key) => {
-                        if (id == data.id) {
+                        if (id === data.id) {
                             self.trees.splice(key, 1);
                         }
                     });
@@ -151,6 +98,7 @@ let app = new Vue({
             this.hiddenWindow = false;
             this.refreshData();
         },
+
         //создает маркер для дерева
         initTreeMarker: function (tree) {
             let self = this, url = './images/' + this.treesImages[tree.state], id = tree.id;
@@ -170,38 +118,36 @@ let app = new Vue({
                 this.changedTree = this.trees.find((el) => {
                     return el.id === id;
                 });
-                this.hiddenWindow = true;
+                this.hiddenWindow = false;
                 this.isEdit = true;
             });
         },
-        //удаление
-        deleteTree: function(index, arrayKey) {
-
-        },
     },
-    //
+
     computed:{
         //фильтрация
         filteredItems: function() {
 
-            if(!this.search.length){
-                return this.trees;
+            let search = this.search, trees = this.trees, markers = this.markers, filtersTrees;
+
+            markers.forEach((marker, id) => {
+                markers[id].setMap(null);
+            });
+
+            if (search.length) {
+                filtersTrees = trees.filter(element => {
+                    return (search.includes(element.state));
+                });
+            } else {
+                filtersTrees = trees;
             }
-        
-            this.markers.forEach((marker, id) => {
-                this.markers[id].setMap(null);
-            });
-        
-            var filtersTrees = this.trees.filter(element => {
-                return (app.search.includes(element.state));
-            });
-            
+
             filtersTrees.forEach((tree) => {
-                this.markers[tree.id].setMap(this.map);
+                markers[tree.id].setMap(this.map);
             });
         }  
     },
-    //
+
     mounted: function () {
         let self = this;
         this.trees = trees;

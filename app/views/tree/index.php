@@ -98,7 +98,7 @@
 
     <div id="app">
 
-        <div class="tree-form" v-bind:hidden="hiddenWindow">
+        <div class="tree-form" v-bind:style="{zIndex: (hiddenWindow) ? 0 : 9999}">
 
             <div class="move-panel"></div>
 
@@ -162,35 +162,18 @@
             <a type="button" v-on:click="deleteTree(tree.id, index)" class = "delete_marker"><i class="fa fa-times" aria-hidden="true"></i></a>
         </div>
 
-        <!--просмотр информации-->
-<!--        <div class="details" v-bind:hidden="jumper">
-            <div class="photoTree">
-                <img v-bind:src="treesImages[detailStateTrees]">
-                <hr>
-                <div class="infoTree">
-                    <p>Назва <input type="text" v-model="detailItemTrees" disabled></p>
-                    <p>Висота <input type="text" v-model="detailStatureTrees" disabled></p>
-                    <p>Діаметр <input type="text" v-model="detailDiameterTrees" disabled></p>
-                    <p>Стан <input type="text" v-model="detailStateTrees" disabled></p>
-                    <p>Широта <input type="text" v-model="detailLatTrees" disabled></p>
-                    <p>Довгота <input type="text" v-model="detailLngTrees" disabled></p>
-                </div>
-            </div>
-            <a><i class="fa fa-hand-o-left" aria-hidden="true" v-on:click="back()"></i></a>
-        </div>-->
-
         <!--фильтрация-->
-        <div class="filters" v-on:click="showFilters = !showFilters">
-            <a href="#"><span class="glyphicon glyphicon-filter" title="фільтрація"></span></a><br>
+        <div class="filters">
+            <a v-on:click="showFilters = !showFilters"><span class="glyphicon glyphicon-filter" title="фільтрація"></span></a><br>
             <div id = "filterTrees" v-bind:hidden="showFilters">
-                <input type = "checkbox" id = "normalState" value = "Нормальне" v-model = "search">Нормальне<br>
-                <input type = "checkbox" id = "goodbadState" value = "Напівсухе" v-model = "search">Напівсухе<br>
-                <input type = "checkbox" id = "badState" value = "Сухе" v-model = "search">Сухе<br>
-                <div class = "filterTrees" v-for = "(item, index) in filteredItems"></div>
+                <div class="filter-param" v-for="(state, index) in states">
+                    <input type="checkbox" v-bind:value="index" v-model="search" v-bind:id="'state' + index">
+                    <label v-bind:for="'state' + index">{{ state }}</label>
+                </div>
             </div>
         </div>
 
-        <div id="map"></div>
+        <div id="map">{{filteredItems}}</div>
     </div>
     </div>
 
