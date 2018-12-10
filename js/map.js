@@ -4,6 +4,9 @@ let app = new Vue({
         //объявление переменных
         showFilters: true,
         hiddenWindow: true,
+        isFirstOpen: true,
+        hiddenAuthenticationForm: true,
+        isAuthorization: true,
         isEdit: false,
         isNew: false,
         trees : [],
@@ -14,6 +17,10 @@ let app = new Vue({
         types: [],
         states: [],
         changedTree: {},
+        userName: '',
+        userEmail: '',
+        userPassword: '',
+        userRepeatingPassword: '',
     },
     methods: {
         getDefaultTree: function () {
@@ -122,6 +129,37 @@ let app = new Vue({
                 this.isEdit = true;
             });
         },
+
+        showAuthenticationForm: function() {
+            this.hiddenAuthenticationForm = false;
+        },
+
+        closeAuthenticationForm: function() {
+            this.hiddenAuthenticationForm = true;
+        },
+
+        //
+        authentication: function () {
+            axios.post(this.isAuthorization ? '/authorization' : '/register', {
+                name: this.userName,
+                email: this.userEmail,
+                password: this.userPassword,
+                repeatingPassword: this.userRepeatingPassword,
+            }).then((request) => {
+                let data = request.data;
+                if (data) {
+                    return alert(data);
+                }
+                location.reload();
+            });
+        },
+
+        exit: function () {
+            axios.post('/exit')
+                .then(() => {
+                    location.reload();
+                });
+        }
     },
 
     computed:{
@@ -145,7 +183,20 @@ let app = new Vue({
             filtersTrees.forEach((tree) => {
                 markers[tree.id].setMap(this.map);
             });
-        }  
+        },
+
+        authenticationButton: function () {
+            return this.isAuthorization ? 'Увійти' : 'Зареєструватися';
+        },
+
+        changeAuthentication: function () {
+            return this.isAuthorization ? 'Реєстрація' : 'Авторизація';
+        },
+
+        mapStyle: function () {
+            let windowHeight = document.documentElement.clientHeight;
+            return 'height: ' + (windowHeight - 53) + 'px;';
+        }
     },
 
     mounted: function () {

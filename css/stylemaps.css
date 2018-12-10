@@ -1,164 +1,269 @@
-body{
-  max-width: 1920px;
-  overflow: hidden;
-}
+@import url('https://fonts.googleapis.com/css?family=Oswald');
 
-#app{
-  font-size: 16px;
-  font-family: 'Merriweather', serif;
+#app {
+    font-size: 16px;
+    font-family: 'Merriweather', serif;
+    position: relative;
 }
 
 /* стилизация верхнего меню */
-.navbar-top{
-background: #ffffff;
-  width: 100%;
-height: 45px;
-text-align: right;
-  padding: 10px 25px 0px 0px;
-} 
+/*.nav-bar {*/
+    /*background: #ffffff;*/
+    /*width: 100%;*/
+    /*height: 45px;*/
+    /*text-align: right;*/
+    /*padding: 10px 25px 0px 0px;*/
+/*}*/
 
-.navbar-top a{
-text-decoration: none;
-color: black;
-font-size: 16px;
-  padding-left: 10px;
+/*.nav-bar a {*/
+    /*text-decoration: none;*/
+    /*color: black;*/
+    /*font-size: 16px;*/
+    /*padding-left: 10px;*/
+/*}*/
+
+/*.nav-bar a:hover {*/
+    /*text-decoration: none;*/
+    /*color: rgb(25, 167, 49);*/
+/*}*/
+
+.fa.fa-child {
+    font-size: 22px;
+    color: #176306;
 }
 
-.navbar-top a:hover{
-  text-decoration: none;
-color: rgb(25, 167, 49);
+.fa.fa-child:hover {
+    color: #3cae22;
 }
 
-.fa.fa-child{
-  font-size: 22px;
-  color:#176306;
-} 
-
-.fa.fa-child:hover{
-  color :#3cae22;
-} 
-
-.brand-logo{
-  float: left;
+.brand-logo {
+    float: left;
 }
 
 /*  */
-.fa.fa-table{
-  position: absolute;
-  right: 55px;
-  top: 60px;
-  z-index: 1;
-  font-size: 30px;
-  color :#616060;
+.fa.fa-table {
+    position: absolute;
+    right: 55px;
+    top: 20px;
+    z-index: 1;
+    font-size: 30px;
+    color: #616060;
 }
 
-.fa.fa-table:hover{
-  color: black;
+.fa.fa-table:hover {
+    color: black;
 }
+
 /* @ToDo add Drug and Drops for this item */
-.details{
-  z-index: 1;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 290px;
-  border: 3px solid #008603;
-  background: #f8f7f7;
-  padding: 5px 15px 30px 15px;
-  font-size: 16px;
-  font-family: 'Spectral', serif;
-  /* font-family: 'PT Serif Caption', serif; */
+.details {
+    z-index: 1;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 290px;
+    border: 3px solid #008603;
+    background: #f8f7f7;
+    padding: 5px 15px 30px 15px;
+    font-size: 16px;
+    font-family: 'Spectral', serif;
+    /* font-family: 'PT Serif Caption', serif; */
 }
 
-.infoTree input{
-  float: right;
+.infoTree input {
+    float: right;
 }
 
-input{
-  width: 160px;
+input {
+    width: 160px;
 }
 
-.fa.fa-hand-o-left{
-  font-size: 40px;
-  color: darkgreen;
-  position: relative;
-  left: 200px;
-} 
-
-.photoTree img{
-  border: #0b2e13;
-  height: 100px;
+.fa.fa-hand-o-left {
+    font-size: 40px;
+    color: darkgreen;
+    position: relative;
+    left: 200px;
 }
 
-/*  */
-.glyphicon.glyphicon-filter{
-  position: absolute;
-  right: 6px;
-  font-size: 30px;
-  color :#616060;
-  z-index: 1;
-}
-
-.glyphicon.glyphicon-filter:hover{
-  color: black;
-}
-
-.filters{
-  position: absolute;
-  right: 10px;
-  top: 100px;
-  z-index: 1;
+.photoTree img {
+    border: #0b2e13;
+    height: 100px;
 }
 
 /*  */
-.elements a{
-  text-decoration: none;
-  color:#616060;
-  font-size: 30px;
+.glyphicon.glyphicon-filter {
+    position: absolute;
+    right: 6px;
+    font-size: 30px;
+    color: #616060;
+    z-index: 1;
 }
 
-.fa.fa-plus{
-  position: absolute;
-  left: 10px;
-  top: 120px;
-  z-index: 1;
+.glyphicon.glyphicon-filter:hover {
+    color: black;
+}
+
+.filters {
+    position: absolute;
+    right: 10px;
+    top: 55px;
+    z-index: 1;
+}
+
+/*  */
+.elements a {
+    text-decoration: none;
+    color: #616060;
+    font-size: 30px;
+}
+
+.fa.fa-plus {
+    position: absolute;
+    left: 10px;
+    top: 120px;
+    z-index: 1;
 }
 
 .fa.fa-plus:hover,
 .fa.fa-pencil:hover,
-.fa.fa-times:hover{
-  color: black;
+.fa.fa-times:hover {
+    color: black;
 }
 
-.fa.fa-pencil{
-  position: absolute;
-  left: 10px;
-  top: 160px;
-  z-index: 1;
+.fa.fa-pencil {
+    position: absolute;
+    left: 10px;
+    top: 160px;
+    z-index: 1;
 }
 
-.fa.fa-times{
-  position: absolute;
-  left: 10px;
-  top: 200px;
-  z-index: 1;
+.fa.fa-times {
+    position: absolute;
+    left: 10px;
+    top: 200px;
+    z-index: 1;
 }
 
 .nav-bar {
-  display: flex;
-  justify-content: space-around;
+    display: flex;
+    justify-content: space-around;
+    height: 35px;
+    align-items: center;
+    font-family: 'Oswald', sans-serif;
+    font-size: 18px;
 }
 
 .this-link a {
-  color: #ff4f00;
+    color: #ff4f00;
 }
 
-
 /* стилизация карты */
-#map{
-  width: 100%;
-  height: 930px;
+#map {
+    width: 100%;
+}
+
+@import url('https://fonts.googleapis.com/css?family=Playfair+Display:400,400i,700,700i,900,900i');
+
+.tree-form {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    grid-gap: 20px;
+    max-width: 500px;
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 15px;
+    padding: 30px 15px 15px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 20px;
+    letter-spacing: 2px;
+    border: 2px solid black;
+    font-family: "Playfair Display";
+    z-index: 9999;
+}
+
+.block:nth-child(even) {
+    grid-column: 1/4;
+}
+
+.block:nth-child(odd) {
+    grid-column: 4/7;
+}
+
+.block:nth-last-child(-n+3) {
+    grid-column: 1/3;
+}
+
+.block:nth-last-child(-n+2) {
+    grid-column: 3/5;
+}
+
+.block:nth-last-child(-n+1) {
+    grid-column: 5/7;
+}
+
+.move-panel {
+    position: absolute;
+    width: 100%;
+    height: 20px;
+    background-color: black;
+    border-radius: 10px 10px 0 0;
+    cursor: move;
+}
+
+.btn, input, select {
+    border: 2px solid gray;
+    color: gray;
+    background-color: white;
+    padding: 4px 20px;
+    border-radius: 8px;
+    font-size: 20px;
+    font-weight: bold;
+    width: 100%;
+    margin: 5px 0;
+}
+
+.add-file-button {
+    position: relative;
+}
+
+input[type=file] {
+    font-size: 20px;
+    position: absolute;
+    left: 0;
+    top: 0;
+    opacity: 0;
+}
+
+input[type=number] {
+    width: calc(100% - 44px) !important;
+}
+
+.btn-save {
+    background-color: #ff6efb;
+}
+
+.btn-remove {
+    background-color: #fd5050;
+}
+
+.btn-cancel {
+    background-color: #85ff84;
+}
+
+.authentication {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: rgba(1, 1, 1, 0.5);
+    z-index: 999;
+}
+
+.modal {
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, 0);
 }
 
 /*стилизируем боковые элементы
@@ -200,9 +305,9 @@ input{
 .open-button {
   z-index: 1;
 }*/
-      
+
 /*стилизируем radio button */
-      
+
 /* .container {
   z-index: 1;
   display: block;
@@ -219,7 +324,7 @@ input{
   opacity: 0;
   cursor: pointer;
 } */
-      
+
 /* Create a custom radio button */
 /* .checkmark {
   z-index: 1;
@@ -234,7 +339,7 @@ input{
 .container input:checked ~ .checkmark {
   background-color: rgb(17, 150, 83);
 } */
-      
+
 /* стилизируем индикатор */
 /* .container .checkmark:after {
   z-index: 1;
@@ -245,7 +350,7 @@ input{
   border-radius: 50%;
   background: rgb(192, 190, 190);
 } */
-      
+
 /*стилизируем форму*/
 /* .form-popup {
   z-index: 1;
@@ -316,27 +421,26 @@ input{
   z-index: 1;
 } */
 
-
 /* Large Devices, Wide Screens */
-@media only screen and (max-width : 1200px) {
+@media only screen and (max-width: 1200px) {
 
 }
 
 /* Medium Devices, Desktops */
-@media only screen and (max-width : 992px) {
+@media only screen and (max-width: 992px) {
 
 }
 
 /* Small Devices, Tablets */
-@media only screen and (max-width : 767px) {
+@media only screen and (max-width: 767px) {
 
 }
 
-@media only screen and (max-width : 540px) {
-	
+@media only screen and (max-width: 540px) {
+
 }
 
 /* Extra Small Devices, Phones */
-@media only screen and (max-width : 480px) {
-	
+@media only screen and (max-width: 480px) {
+
 }

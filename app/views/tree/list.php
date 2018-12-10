@@ -1,8 +1,6 @@
 <?php
 
 ?>
-
-<div id="app">
     <div class = "main">
         <div class = "trees">
 
@@ -19,4 +17,3 @@
             </div>
         </div>
     </div>
-</div>
