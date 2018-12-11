@@ -7,6 +7,7 @@ let app = new Vue({
         isFirstOpen: true,
         hiddenAuthenticationForm: true,
         isAuthorization: true,
+        isDisabled: true,
         isEdit: false,
         isNew: false,
         trees : [],
@@ -42,6 +43,7 @@ let app = new Vue({
             this.isEdit = false;
             this.isNew = false;
             this.changedTree = this.getDefaultTree();
+            this.hiddenAuthenticationForm = true;
         },
 
         //открытие окна для создания дерева
@@ -108,7 +110,9 @@ let app = new Vue({
 
         //создает маркер для дерева
         initTreeMarker: function (tree) {
-            let self = this, url = './images/' + this.treesImages[tree.state], id = tree.id;
+            let self = this,
+                url = './images/' + this.treesImages[tree.state],
+                id = tree.id;
             //маркер
             this.markers[id] = new google.maps.Marker({
                 position: {
@@ -131,6 +135,7 @@ let app = new Vue({
         },
 
         showAuthenticationForm: function() {
+            this.refreshData();
             this.hiddenAuthenticationForm = false;
         },
 
@@ -166,7 +171,10 @@ let app = new Vue({
         //фильтрация
         filteredItems: function() {
 
-            let search = this.search, trees = this.trees, markers = this.markers, filtersTrees;
+            let search = this.search,
+                trees = this.trees,
+                markers = this.markers,
+                filtersTrees;
 
             markers.forEach((marker, id) => {
                 markers[id].setMap(null);
@@ -195,12 +203,13 @@ let app = new Vue({
 
         mapStyle: function () {
             let windowHeight = document.documentElement.clientHeight;
-            return 'height: ' + (windowHeight - 53) + 'px;';
+            return 'height: ' + (windowHeight - 20) + 'px;';
         }
     },
 
     mounted: function () {
         let self = this;
+        this.isDisabled = !isAdmin;
         this.trees = trees;
         this.states = states;
         this.types = types;
@@ -216,7 +225,7 @@ let app = new Vue({
         this.map.addListener('click', function (event) {
             //получаем координаты
             let latLng = event.latLng;
-            if (self.isEdit || self.isNew) {
+            if ((self.isEdit || self.isNew) && !self.isDisabled) {
                 self.changedTree.lat = latLng.lat();
                 self.changedTree.lng = latLng.lng();
             }

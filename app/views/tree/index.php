@@ -7,71 +7,70 @@
 
     <div class="move-panel"></div>
 
-    <div class="block">
-        <div class="label">Image</div>
-        <div class="add-file-button">
-            <button class="btn">Upload a file</button>
-            <input type="file" name="myfile" />
-        </div>
-    </div>
-    <div class="block">
-        <img src="" alt="">
-    </div>
+<!--    <div class="block">-->
+<!--        <div class="label">Image</div>-->
+<!--        <div class="add-file-button">-->
+<!--            <button class="btn">Upload a file</button>-->
+<!--            <input type="file" name="myfile" />-->
+<!--        </div>-->
+<!--    </div>-->
+<!--    <div class="block">-->
+<!--        <img src="" alt="">-->
+<!--    </div>-->
     <div class="block">
         <div class="label">Type</div>
-        <select v-model="changedTree.type">
+        <select v-model="changedTree.type" v-bind:disabled="isDisabled">
             <option v-for="(type, index) in types" v-bind:value="index">{{ type }}</option>
         </select>
     </div>
     <div class="block">
         <div class="label">State</div>
-            <select v-model="changedTree.state">
+            <select v-model="changedTree.state" v-bind:disabled="isDisabled">
                 <option v-for="(state, index) in states" v-bind:value="index">{{ state }}</option>
             </select>
     </div>
     <div class="block">
         <div class="label">Stature</div>
-        <input type="number" v-model="changedTree.stature">
+        <input type="number" v-model="changedTree.stature" v-bind:disabled="isDisabled">
     </div>
     <div class="block">
         <div class="label">Diameter</div>
-        <input type="number" v-model="changedTree.diameter">
+        <input type="number" v-model="changedTree.diameter" v-bind:disabled="isDisabled">
     </div>
     <div class="block">
         <div class="label">Lat</div>
-        <input type="number" v-model="changedTree.lat">
+        <input type="number" v-model="changedTree.lat" v-bind:disabled="isDisabled">
     </div>
     <div class="block">
         <div class="label">Lng</div>
-        <input type="number" v-model="changedTree.lng">
+        <input type="number" v-model="changedTree.lng" v-bind:disabled="isDisabled">
     </div>
 
-    <?php if ($isInSession): ?>
+    <?php if ($isInSession && $_SESSION['is_admin']): ?>
         <div class="block">
             <button class="btn btn-save" v-on:click="saveData()">Save</button>
         </div>
         <div class="block">
             <button class="btn btn-remove" v-on:click="removeData()">Remove</button>
         </div>
-        <div class="block">
-            <button class="btn btn-cancel" v-on:click="hideWindow()">Cancel</button>
-        </div>
     <?php else: ?>
         <div class="block"></div>
         <div class="block"></div>
-        <div class="block"></div>
     <?php endif; ?>
+    <div class="block">
+        <button class="btn btn-cancel" v-on:click="hideWindow()">Cancel</button>
+    </div>
 </div>
 
+<?php if ($isInSession && $_SESSION['is_admin']): ?>
 <div class="datatTable">
     <a href="/table"><i class="fa fa-table" aria-hidden="true" title="перегляд у вигляді таблиці"></i></a>
 </div>
 
 <div class="elements">
     <a type="button" v-on:click="openWindowForCreating()"><i class="fa fa-plus" aria-hidden="true"></i></a>
-    <a type="button" v-on:click="editing(tree.id)" class = "edit_marker"><i class="fa fa-pencil" aria-hidden="true"></i></a>
-    <a type="button" v-on:click="deleteTree(tree.id, index)" class = "delete_marker"><i class="fa fa-times" aria-hidden="true"></i></a>
 </div>
+<?php endif; ?>
 
 <!--фильтрация-->
 <div class="filters">
