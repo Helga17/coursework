@@ -31,7 +31,7 @@ class Tree extends BaseModel
         $this->diameter = $params['diameter'] ?? null;
         $this->state = $params['state'] ?? null;
         $this->user_id = $_SESSION['id'] ?? null;
-        $this->is_active = (int) (($params['is_active'] ?? false) && ($_SESSION['isAdmin'] ?? false));
+        $this->is_active = (int) (($params['is_active'] ?? false) && ($_SESSION['is_admin'] ?? false));
     }
 
     private function getRequiredParamsForCreate() {
@@ -57,7 +57,7 @@ class Tree extends BaseModel
     }
 
     private function checkPermission() {
-        return $this->id && (($_SESSION['isAdmin'] ?? false) || $this->checkIsCreator());
+        return $this->id && (($_SESSION['is_admin'] ?? false) || $this->checkIsCreator());
     }
 
     public static function getTableName(): string {

@@ -72,7 +72,7 @@ body, html {
     border: 1px solid #E9E9E9;
     border-radius: 2px;
     overflow: auto;
-    margin: 1rem 1rem 1rem 0rem;
+    margin: 1rem 1rem 1rem 0;
     display: flex;
     flex-flow: row nowrap;
 }

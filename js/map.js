@@ -4,9 +4,8 @@ let app = new Vue({
         //объявление переменных
         showFilters: true,
         hiddenWindow: true,
-        isFirstOpen: true,
         hiddenAuthenticationForm: true,
-        isAuthorization: true,
+        isAuthorization: false,
         isDisabled: true,
         isEdit: false,
         isNew: false,
@@ -197,13 +196,9 @@ let app = new Vue({
             return this.isAuthorization ? 'Увійти' : 'Зареєструватися';
         },
 
-        changeAuthentication: function () {
-            return this.isAuthorization ? 'Реєстрація' : 'Авторизація';
-        },
-
         mapStyle: function () {
             let windowHeight = document.documentElement.clientHeight;
-            return 'height: ' + (windowHeight - 20) + 'px;';
+            return 'height: ' + (windowHeight - 35) + 'px;';
         }
     },
 

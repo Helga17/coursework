@@ -1,9 +1,9 @@
 <?php
     $navBarElements = [
         ['title' => 'Головна', 'link' => '/'],
-        ['title' => 'Данні', 'link' => '/data'],
+        ['title' => 'Дані', 'link' => '/data'],
         ['title' => 'Таблиця', 'link' => '/table'],
-        ['title' => 'Графік', 'link' => '/graph'],
+//        ['title' => 'Графік', 'link' => '/graph'],
     ];
     $thisLink =$_SERVER['REQUEST_URI'];
 ?>

@@ -44,7 +44,7 @@
 .fa.fa-table {
     position: absolute;
     right: 55px;
-    top: 20px;
+    top: 50px;
     z-index: 1;
     font-size: 30px;
     color: #616060;
@@ -74,8 +74,21 @@
     float: right;
 }
 
+.fa {
+    font-size: 36px !important;
+    color: #616060;
+}
+
+.fa:hover {
+    color: #000000;
+}
+
 input {
     width: 160px;
+}
+
+input[type=checkbox] {
+    width: 25px;
 }
 
 .fa.fa-hand-o-left {
@@ -105,9 +118,22 @@ input {
 
 .filters {
     position: absolute;
-    right: 10px;
-    top: 55px;
+    right: 15px;
+    top: 90px;
     z-index: 1;
+    text-align: right;
+}
+
+.filters>div {
+    text-align: left;
+    background: rgba(1,1,1,0.5);
+    padding: 5px;
+    border-radius: 5px;
+}
+
+.filter-param {
+    display: flex;
+    align-items: center;
 }
 
 /*  */
@@ -122,12 +148,6 @@ input {
     left: 10px;
     top: 120px;
     z-index: 1;
-}
-
-.fa.fa-plus:hover,
-.fa.fa-pencil:hover,
-.fa.fa-times:hover {
-    color: black;
 }
 
 .fa.fa-pencil {
@@ -174,7 +194,7 @@ input {
     grid-template-columns: repeat(6, 1fr);
     grid-gap: 20px;
     max-width: 500px;
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: rgba(232, 232, 232, 0.7);;
     border-radius: 15px;
     padding: 30px 15px 15px;
     position: absolute;
@@ -448,4 +468,209 @@ input[type=number] {
 /* Extra Small Devices, Phones */
 @media only screen and (max-width: 480px) {
 
+}
+
+.tre {
+    display: flex;
+    align-items: center;
+}
+
+.logo {
+    height: 35px;
+    float: left;
+}
+
+.logo>img {
+    height: 100%;
+}
+
+.elements {
+    height: 0;
+}
+
+.authentication {
+    font-family: Arial, Helvetica, sans-serif;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: #828da5;
+    padding-top: 50px;
+    z-index: 999;
+}
+
+.close {
+    position: absolute;
+    right: 5px;
+    top: -5px;
+    font-size: 40px;
+    font-weight: bold;
+    color: #000000;
+}
+
+.close:hover,
+.close:focus {
+    color: #f44336;
+    cursor: pointer;
+}
+
+hr {
+    border: 1px solid #f1f1f1;
+    margin-bottom: 25px;
+}
+
+.modal {
+    background-color: #fefefe;
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, 0);
+    max-width: 680px;
+    margin: 5% auto 15% auto;
+    padding: 20px;
+    text-align: left !important;
+}
+
+.container {
+    width: 305px;
+}
+
+
+
+.container img{
+    max-width: 305px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.authentication-form-element input[type=text], input[type=password] {
+    width: 94%;
+    padding: 10px;
+    margin: 4px 0 19px 0;
+    display: inline-block;
+    border: none;
+    background: #f1f1f1;
+    font-size: 12px;
+}
+
+.authentication-form-element input[type=text]:focus, input[type=password]:focus {
+    background-color: #dddddd;
+    outline: none;
+}
+
+.tab-buttons {
+    display: flex;
+    justify-content: space-around;
+    border-bottom: 2px solid #cccccc;
+}
+
+.tab {
+    width: 40%;
+    text-align: center;
+    border: 2px solid #cccccc;
+    margin-bottom: -2px;
+    cursor: pointer;
+}
+
+.active-tab {
+    border-bottom: 2px solid #ffffff;
+}
+
+.authentication-form {
+    border: 2px solid #f1f1f1;
+    border-top: none;
+    padding: 5px;
+}
+
+i, button {
+    cursor: pointer;
+}
+
+.btn {
+    color: #000000;
+}
+
+a {
+    text-decoration: none;
+}
+
+.main {
+    display: flex;
+    flex-direction: row;
+    flex: 1;
+    padding-bottom: 2rem;
+}
+
+.trees {
+    flex: 3;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.tre-list {
+    margin-right: 1rem;
+}
+
+.tre {
+    padding: 1rem;
+    border: 1px solid #E9E9E9;
+    border-radius: 2px;
+    overflow: auto;
+    margin: 1rem;
+    display: flex;
+    flex-flow: row nowrap;
+    width: calc(50% - 66px);
+}
+
+.tre:first-child {
+
+}
+
+.tre > div:first-child {
+    margin-top: 0;
+}
+
+.tre > div:last-child {
+    margin-left: 1rem;
+}
+
+.tree-image {
+    max-height: 250px;
+    width: 200px;
+    overflow: hidden;
+    border: 1px solid #E9E9E9;
+    border-radius: 2px;
+}
+
+.tree-image > img {
+    height: 100%;
+    width: 200px;
+    display: block;
+}
+
+.tree-title {
+    margin-top: 0;
+}
+
+label{
+    line-height: 1.5;
+}
+
+table {
+    text-align: center;
+    margin: 15px auto auto;
+}
+
+td, th {
+    padding: 0 10px;
+}
+
+.content tr,th,td,table{
+   border: 2px solid #E9E9E9;
+}
+.customTable{
+    border-collapse: collapse;
 }
