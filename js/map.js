@@ -55,6 +55,7 @@ let app = new Vue({
         //сохраняет введенные данные
         saveData: function() {
             let self = this, tree = self.changedTree;
+            tree.is_active = !self.isDisabled;
             if (self.isNew) {
                 axios.post('/addTree', tree)
                     .then((response) => {
@@ -124,6 +125,9 @@ let app = new Vue({
                     scaledSize: new google.maps.Size(22, 22)
                 }
             });
+            if (!(tree.is_active * 1)) {
+                this.markers[id].setOpacity(0.5);
+            }
             this.markers[id].addListener('click', () => {
                 this.changedTree = this.trees.find((el) => {
                     return el.id === id;

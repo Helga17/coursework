@@ -11,8 +11,7 @@ class TreeController extends BaseController
     private $tree;
     private $requestTree;
 
-    public function __construct()
-    {
+    public function __construct() {
         $this->tree = new Tree();
         $requestData = $this->getRequestData();
         if (is_null($requestData) || !is_array($requestData)) {
@@ -21,8 +20,7 @@ class TreeController extends BaseController
         $this->requestTree = new Tree($requestData);
     }
 
-    private function buildPage(string $pageName)
-    {
+    private function buildPage(string $pageName) {
         $trees = $this->tree->getTrees();
         $condition = new Condition();
         $treeImages = $condition->getArrayDataForTable('imageSrc');
@@ -37,19 +35,25 @@ class TreeController extends BaseController
         ]);
     }
 
-    public function actionIndex()
-    {
+    public function actionIndex() {
         $this->buildPage('index');
     }
 
-    public function actionList()
-    {
+    public function actionList() {
         $this->buildPage('list');
     }
 
-    public function actionTable()
-    {
+    public function actionTable() {
         $this->buildPage('table');
+    }
+
+    public function actionGraph() {
+        $allGraphData = $this->tree->getGraphData();
+        $graphData = [];
+        foreach ($allGraphData as $data) {
+            $graphData[$data['type']][$data['state']] = $data['count'];
+        }
+        $this->render('graph', ['graphData' => $graphData]);
     }
 
     public function actionAdd() {
@@ -64,7 +68,7 @@ class TreeController extends BaseController
         echo $this->requestTree->removeObject();
     }
 
-    public function ActionGetImage() {
+    public function actionGetImage() {
 
     }
 }

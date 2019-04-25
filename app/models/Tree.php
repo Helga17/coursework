@@ -31,7 +31,7 @@ class Tree extends BaseModel
         $this->diameter = $params['diameter'] ?? null;
         $this->state = $params['state'] ?? null;
         $this->user_id = $_SESSION['id'] ?? null;
-        $this->is_active = (int) (($params['is_active'] ?? false) && ($_SESSION['is_admin'] ?? false));
+        $this->is_active = (int) ($_SESSION['is_admin'] ?? false);
     }
 
     private function getRequiredParamsForCreate() {
@@ -102,5 +102,13 @@ class Tree extends BaseModel
             return '';
         }
         return 'You arn`t have permission';
+    }
+
+    public function getGraphData() {
+        return $this->select('
+            select state, `type`, count(id) `count`
+            from tree
+            group by state, `type`
+        ');
     }
 }
