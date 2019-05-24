@@ -674,3 +674,15 @@ td, th {
 .customTable{
     border-collapse: collapse;
 }
+
+#histogram .ct-series-a line {
+    stroke: #0aad1d;
+}
+
+#histogram .ct-series-b line {
+    stroke: #ffe831;
+}
+
+#histogram .ct-series-c line {
+    stroke: #c21116;
+}

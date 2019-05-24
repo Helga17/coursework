@@ -4,7 +4,6 @@ namespace app\models;
 
 class Tree extends BaseModel
 {
-
     public $id;
     public $type;
     public $lat;
@@ -108,7 +107,7 @@ class Tree extends BaseModel
         return $this->select('
             select state, `type`, count(id) `count`
             from tree
-            group by state, `type`
+            group by `type`, state
         ');
     }
 }

@@ -207,6 +207,19 @@ let app = new Vue({
     },
 
     mounted: function () {
+        new Chartist.Bar('#histogram', {
+            labels: typesLabels,
+            series: countsData,
+        }, {
+            seriesBarDistance: 10,
+            axisX: {
+                offset: 60
+            },
+            axisY: {
+                offset: 40,
+                scaleMinSpace: 15
+            }
+        });
         let self = this;
         this.isDisabled = !isAdmin;
         this.trees = trees;

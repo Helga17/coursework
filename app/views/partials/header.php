@@ -14,8 +14,10 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Spectral" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/chartist.min.css"
     <!-- <link href="https://fonts.googleapis.com/css?family=PT+Serif+Caption" rel="stylesheet"> -->
     <script src="js/vue.min.js"></script>
     <script src="https://maps.googleapis.com/maps/api/js?region=cn&language=ukr-CN&key=AIzaSyDzsFxCMe9JMR-CoSCyfP6jUiGMuXPTazU"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.5.0/axios.js"></script>
+    <script src="js/chartist.min.js"></script>
 </head>

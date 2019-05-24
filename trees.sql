@@ -7,6 +7,40 @@ CREATE TABLE trees.`condition`
 INSERT INTO trees.`condition` (id, type, imageSrc) VALUES (1, 'Нормальне', 'tree.jpg');
 INSERT INTO trees.`condition` (id, type, imageSrc) VALUES (2, 'Напівсухе', 'good-bad.png');
 INSERT INTO trees.`condition` (id, type, imageSrc) VALUES (3, 'Сухе', 'bad.png');
+CREATE TABLE trees.type
+(
+id tinyint(7) PRIMARY KEY NOT NULL AUTO_INCREMENT,
+title varchar(50) NOT NULL
+);
+CREATE UNIQUE INDEX type_id_uindex ON trees.type (id);
+INSERT INTO trees.type (id, title) VALUES (1, 'Дуб');
+INSERT INTO trees.type (id, title) VALUES (2, 'Береза');
+INSERT INTO trees.type (id, title) VALUES (3, 'Ясень');
+INSERT INTO trees.type (id, title) VALUES (4, 'Тополь');
+INSERT INTO trees.type (id, title) VALUES (5, 'Верба');
+INSERT INTO trees.type (id, title) VALUES (6, 'Катальпа');
+INSERT INTO trees.type (id, title) VALUES (7, 'Каштан');
+INSERT INTO trees.type (id, title) VALUES (8, 'Горіх');
+INSERT INTO trees.type (id, title) VALUES (9, 'Липа');
+INSERT INTO trees.type (id, title) VALUES (10, 'Клен');
+INSERT INTO trees.type (id, title) VALUES (11, 'Акація');
+CREATE TABLE trees.user
+(
+id int(11) PRIMARY KEY NOT NULL AUTO_INCREMENT,
+name varchar(70),
+email varchar(70),
+password varchar(70),
+is_admin tinyint(1) DEFAULT '0'
+);
+CREATE UNIQUE INDEX user_id_uindex ON trees.user (id);
+CREATE UNIQUE INDEX user_email_uindex ON trees.user (email);
+INSERT INTO trees.user (id, name, email, password, is_admin) VALUES (1, 'dsf', 'ddfsg', 'sdg', 0);
+INSERT INTO trees.user (id, name, email, password, is_admin) VALUES (2, null, 'dss', 'dfsgdsg', 0);
+INSERT INTO trees.user (id, name, email, password, is_admin) VALUES (3, null, 'dfgd', 'dfsgdsg', 0);
+INSERT INTO trees.user (id, name, email, password, is_admin) VALUES (4, null, 'dfg', 'dfsgdsg', 1);
+INSERT INTO trees.user (id, name, email, password, is_admin) VALUES (5, null, 'fdg', 'dfsgdsg', 0);
+INSERT INTO trees.user (id, name, email, password, is_admin) VALUES (6, null, 'gh', 'dfsgdsg', 0);
+INSERT INTO trees.user (id, name, email, password, is_admin) VALUES (7, null, 'sdfgfd', 'dfsgdsg', 0);
 CREATE TABLE trees.tree
 (
     id int(11) PRIMARY KEY NOT NULL AUTO_INCREMENT,
@@ -35,37 +69,3 @@ INSERT INTO trees.tree (id, type, lat, lng, stature, diameter, is_active, state,
 INSERT INTO trees.tree (id, type, lat, lng, stature, diameter, is_active, state, user_id) VALUES (17, 1, 47.846533654437, 35.069551174072, 11, 1, 0, 2, 4);
 INSERT INTO trees.tree (id, type, lat, lng, stature, diameter, is_active, state, user_id) VALUES (18, 2, 47.868763485129, 35.17726868811, 5, 3, 0, 2, 4);
 INSERT INTO trees.tree (id, type, lat, lng, stature, diameter, is_active, state, user_id) VALUES (21, 6, 47.854827762867, 35.094699565796, 2, 3, 0, 3, 4);
-CREATE TABLE trees.type
-(
-    id tinyint(7) PRIMARY KEY NOT NULL AUTO_INCREMENT,
-    title varchar(50) NOT NULL
-);
-CREATE UNIQUE INDEX type_id_uindex ON trees.type (id);
-INSERT INTO trees.type (id, title) VALUES (1, 'Дуб');
-INSERT INTO trees.type (id, title) VALUES (2, 'Береза');
-INSERT INTO trees.type (id, title) VALUES (3, 'Ясень');
-INSERT INTO trees.type (id, title) VALUES (4, 'Тополь');
-INSERT INTO trees.type (id, title) VALUES (5, 'Верба');
-INSERT INTO trees.type (id, title) VALUES (6, 'Катальпа');
-INSERT INTO trees.type (id, title) VALUES (7, 'Каштан');
-INSERT INTO trees.type (id, title) VALUES (8, 'Горіх');
-INSERT INTO trees.type (id, title) VALUES (9, 'Липа');
-INSERT INTO trees.type (id, title) VALUES (10, 'Клен');
-INSERT INTO trees.type (id, title) VALUES (11, 'Акація');
-CREATE TABLE trees.user
-(
-    id int(11) PRIMARY KEY NOT NULL AUTO_INCREMENT,
-    name varchar(70),
-    email varchar(70),
-    password varchar(70),
-    is_admin tinyint(1) DEFAULT '0'
-);
-CREATE UNIQUE INDEX user_id_uindex ON trees.user (id);
-CREATE UNIQUE INDEX user_email_uindex ON trees.user (email);
-INSERT INTO trees.user (id, name, email, password, is_admin) VALUES (1, 'dsf', 'ddfsg', 'sdg', 0);
-INSERT INTO trees.user (id, name, email, password, is_admin) VALUES (2, null, 'dss', 'dfsgdsg', 0);
-INSERT INTO trees.user (id, name, email, password, is_admin) VALUES (3, null, 'dfgd', 'dfsgdsg', 0);
-INSERT INTO trees.user (id, name, email, password, is_admin) VALUES (4, null, 'dfg', 'dfsgdsg', 1);
-INSERT INTO trees.user (id, name, email, password, is_admin) VALUES (5, null, 'fdg', 'dfsgdsg', 0);
-INSERT INTO trees.user (id, name, email, password, is_admin) VALUES (6, null, 'gh', 'dfsgdsg', 0);
-INSERT INTO trees.user (id, name, email, password, is_admin) VALUES (7, null, 'sdfgfd', 'dfsgdsg', 0);

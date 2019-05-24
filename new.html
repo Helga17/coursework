@@ -7,7 +7,7 @@
   <title>new diplom</title>
   <link rel="stylesheet" href="css/new.css">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-  <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDzsFxCMe9JMR-CoSCyfP6jUiGMuXPTazU&callback=initMap"></script>
+  <script src="https://maps.googleapis.com/maps/api/js?region=cn&language=ukr-CN&key=AIzaSyDzsFxCMe9JMR-CoSCyfP6jUiGMuXPTazU"></script>
   <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
   <script>
     function initMap() {
@@ -161,6 +161,9 @@
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script> -->
 
     <script>
+      window.onload = function () {
+          initMap();
+      };
     // Line
     var ctx = document.getElementById("myChart").getContext('2d');
     var myChart = new Chart(ctx, {
@@ -214,6 +217,6 @@
     });
     
   </script>
-        
+
 </body>
 </html>
