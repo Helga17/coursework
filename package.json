@@ -1,0 +1,19 @@
+{
+  "name": "trees",
+  "version": "1.0.0",
+  "description": "Для запуска проекта следует: 1) Иметь установленные: PHP7.x, MySql-server, MySql-client; 2) Создать локальный сервер (apache + host); 3) Создать базу и в ней выполнить скрипт из файла trees.sql; 4) Сверить свои данные настройки БД с файлом ./config/db.php; 5) Открыть сайт в браузере и проверить работу.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Helga17/coursework.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Helga17/coursework/issues"
+  },
+  "homepage": "https://github.com/Helga17/coursework#readme"
+}

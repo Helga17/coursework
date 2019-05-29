@@ -27,11 +27,34 @@ class TreeController extends BaseController
         $conditions = $condition->getArrayDataForTable('type');
         $type = new Type();
         $types = $type->getArrayDataForTable('title');
+        $allGraphData = $this->tree->getGraphData();
+        $graphData = [];
+        $elementData = [];
+        $conditionsKeys = array_keys($conditions);
+        foreach ($conditionsKeys as $key) {
+            $elementData[$key] = 0;
+        }
+        foreach ($allGraphData as $data) {
+            if (empty($graphData[$data['type']])) {
+                $graphData[$data['type']] = $elementData;
+            }
+            $graphData[$data['type']][$data['state']] = (int) $data['count'];
+        }
+        $typesLabels = [];
+        $countsData = [];
+        foreach ($graphData as $treeType => $counts) {
+            foreach ($counts as $state => $count) {
+                $countsData[$state][] = $count;
+            }
+            $typesLabels[] = $types[$treeType];
+        }
         $this->render($pageName, [
-                'trees' => $trees,
-                'treeImages' => $treeImages,
-                'conditions' => $conditions,
-                'types' => $types,
+            'countsData' => $countsData,
+            'typesLabels' => $typesLabels,
+            'trees' => $trees,
+            'treeImages' => $treeImages,
+            'conditions' => $conditions,
+            'types' => $types,
         ]);
     }
 

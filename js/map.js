@@ -245,5 +245,6 @@ let app = new Vue({
         this.trees.forEach((tree) => {
             this.initTreeMarker(tree);
         });
+        runScript();
     }
 });

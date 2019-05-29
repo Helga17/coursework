@@ -20,4 +20,5 @@
     <script src="https://maps.googleapis.com/maps/api/js?region=cn&language=ukr-CN&key=AIzaSyDzsFxCMe9JMR-CoSCyfP6jUiGMuXPTazU"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.5.0/axios.js"></script>
     <script src="js/chartist.min.js"></script>
+    <script src="https://momentjs.com/downloads/moment.js"></script>
 </head>
