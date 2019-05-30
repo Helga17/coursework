@@ -118,8 +118,8 @@ input[type=checkbox] {
 
 .filters {
     position: absolute;
-    right: 15px;
-    top: 90px;
+    right: 35px;
+    top: 125px;
     z-index: 1;
     text-align: right;
 }
@@ -715,7 +715,7 @@ td, th {
     transform: translate3d(0, 0, 0);
     width: 420px;
     margin: 0 auto;
-    height: 570px;
+    height: 580px;
     overflow: hidden;
 }
 
@@ -798,7 +798,12 @@ td, th {
 }
 
 #calendar-block .week {
+    margin-bottom: -15px;
     background: #4a4a4a;
+}
+
+#calendar-block .week:last-child {
+    margin-bottom: -10px;
 }
 
 #calendar-block .day {
@@ -875,7 +880,7 @@ td, th {
     width: 420px;
     height: 75px;
     background: rgba(164, 164, 164, 1);
-    margin-top: 5px;
+    margin-top: 40px;
     border-radius: 4px;
 }
 

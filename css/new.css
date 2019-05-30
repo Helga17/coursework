@@ -6,7 +6,6 @@ nav.navbar{
     height: calc(100vh - 200px);
     min-height: 700px;
     width: 100%;
-    z-index: 99999;
 }
 
 .card-header{

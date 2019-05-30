@@ -18,12 +18,12 @@ $isInSession = isset($_SESSION['id']);
 ?>
 <body>
 <div id="app">
-    <div class="logo">
+    <!--<div class="logo">
         <img src="/images/logo.png">
     </div>
     <div class="menu">
-        <?php require_once(__DIR__ . (isset($_SESSION['id']) ? '/nav-bar.php' : '/login-panel.php')); ?>
-    </div>
+        <?php /*require_once(__DIR__ . (isset($_SESSION['id']) ? '/nav-bar.php' : '/login-panel.php')); */?>
+    </div>-->
     <div class="content">
 
         <?php if (isset($trees)): ?>

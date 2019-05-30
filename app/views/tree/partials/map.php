@@ -83,4 +83,4 @@
     </div>
 </div>
 
-<div id="map" v-bind:style="mapStyle">{{filteredItems}}</div>
+<div id="map">{{filteredItems}}</div>

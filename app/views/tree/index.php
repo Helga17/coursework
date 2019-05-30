@@ -26,7 +26,7 @@
     <div class="container-fluid mt-4">
         <div  class="col-md-12">
             <div class="card ">
-                <div class="card-header">
+                <div class="card-header text-center">
                     Google Map
                 </div>
                 <div class="card-body">
@@ -38,6 +38,9 @@
             <div class="row wow fadeIn">
                 <div class="col-md-12">
                     <div class="card">
+                        <div class="card-header text-center">
+                            Histogram
+                        </div>
                         <div class="card-body">
                             <?php require_once (__DIR__ . '/partials/graph.php'); ?>
                         </div>
@@ -48,11 +51,13 @@
         <div class="container-fluid mt-5 mb-2">
             <div class="row wow fadeIn">
                 <div class="col-md-12 ">
-                    <div class="card-header text-center">
-                        Calendar
-                    </div>
-                    <div class="card-body">
-                        <?php require_once (__DIR__ . '/partials/calendar.php'); ?>
+                    <div class="card">
+                        <div class="card-header text-center">
+                            Calendar
+                        </div>
+                        <div class="card-body">
+                            <?php require_once (__DIR__ . '/partials/calendar.php'); ?>
+                        </div>
                     </div>
                 </div>
             </div>

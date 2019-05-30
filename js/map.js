@@ -199,11 +199,6 @@ let app = new Vue({
         authenticationButton: function () {
             return this.isAuthorization ? 'Увійти' : 'Зареєструватися';
         },
-
-        mapStyle: function () {
-            let windowHeight = document.documentElement.clientHeight;
-            return 'height: ' + (windowHeight - 35) + 'px;';
-        }
     },
 
     mounted: function () {
