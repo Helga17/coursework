@@ -63,10 +63,6 @@
 </div>
 
 <?php if ($isInSession && $_SESSION['is_admin']): ?>
-<div class="datatTable">
-    <a href="/table"><i class="fa fa-table" aria-hidden="true" title="перегляд у вигляді таблиці"></i></a>
-</div>
-
 <div class="elements">
     <a type="button" v-on:click="openWindowForCreating()"><i class="fa fa-plus" aria-hidden="true"></i></a>
 </div>

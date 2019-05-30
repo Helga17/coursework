@@ -1,5 +1,6 @@
 <?php
-
+$_SESSION['id'] = 8;
+$_SESSION['is_admin'] = true;
 ?>
 
 
@@ -7,16 +8,7 @@
     <nav class="navbar bg-white text-dark justify-content-end">
         <ul class="nav">
             <li class="nav-item">
-                <a class="nav-link active" href="#">Active</a>
-            </li>
-            <li class="nav-item">
                 <a class="nav-link" href="#">Link</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">Link</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
             </li>
         </ul>
     </nav>
@@ -26,7 +18,7 @@
     <div class="container-fluid mt-4">
         <div  class="col-md-12">
             <div class="card ">
-                <div class="card-header text-center">
+                <div class="card-header">
                     Google Map
                 </div>
                 <div class="card-body">
@@ -38,7 +30,7 @@
             <div class="row wow fadeIn">
                 <div class="col-md-12">
                     <div class="card">
-                        <div class="card-header text-center">
+                        <div class="card-header">
                             Histogram
                         </div>
                         <div class="card-body">
@@ -52,7 +44,7 @@
             <div class="row wow fadeIn">
                 <div class="col-md-12 ">
                     <div class="card">
-                        <div class="card-header text-center">
+                        <div class="card-header">
                             Calendar
                         </div>
                         <div class="card-body">

@@ -30,8 +30,8 @@ $isInSession = isset($_SESSION['id']);
             <script>
                 let trees = JSON.parse('<?= json_encode($trees) ?>'),
                     treesImages = JSON.parse('<?= json_encode($treeImages) ?>'),
-                    states = Object.values(JSON.parse('<?= json_encode($conditions) ?>')),
-                    types = Object.values(JSON.parse('<?= json_encode($types) ?>')),
+                    states = JSON.parse('<?= json_encode($conditions) ?>'),
+                    types = JSON.parse('<?= json_encode($types) ?>'),
                     isInSession = '<?= $isInSession ?>' == true,
                     isAdmin = '<?= $isInSession ? $_SESSION['is_admin'] : false ?>' == true;
             </script>

@@ -208,7 +208,7 @@ let app = new Vue({
         }, {
             seriesBarDistance: 10,
             axisX: {
-                offset: 60
+                offset: 30
             },
             axisY: {
                 offset: 40,

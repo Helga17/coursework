@@ -119,7 +119,7 @@ input[type=checkbox] {
 .filters {
     position: absolute;
     right: 35px;
-    top: 125px;
+    top: 5px;
     z-index: 1;
     text-align: right;
 }
@@ -486,6 +486,9 @@ input[type=number] {
 
 .elements {
     height: 0;
+    position: absolute;
+    top: -115px;
+    right: 120px;
 }
 
 .authentication {
@@ -690,10 +693,10 @@ td, th {
     overflow: hidden;
     font-family: 'HelveticaNeue-UltraLight', 'Helvetica Neue UltraLight', 'Helvetica Neue', Arial, Helvetica, sans-serif;
     font-weight: 100;
-    color: rgba(255, 255, 255, 1);
+    /*color: rgba(255, 255, 255, 1);*/
     margin: 0;
     padding: 0;
-    background: #4a4a4a;
+    /*background: #4a4a4a;*/
     -webkit-touch-callout: none;
     -webkit-user-select: none;
     -khtml-user-select: none;
@@ -713,7 +716,7 @@ td, th {
     -webkit-transform: translate3d(0, 0, 0);
     -moz-transform: translate3d(0, 0, 0);
     transform: translate3d(0, 0, 0);
-    width: 420px;
+    width: 560px;
     margin: 0 auto;
     height: 580px;
     overflow: hidden;
@@ -721,8 +724,8 @@ td, th {
 
 #calendar-block .header {
     height: 50px;
-    width: 420px;
-    background: rgba(66, 66, 66, 1);
+    width: 560px;
+    /*background: rgba(66, 66, 66, 1);*/
     text-align: center;
     position: relative;
     z-index: 100;
@@ -799,7 +802,7 @@ td, th {
 
 #calendar-block .week {
     margin-bottom: -15px;
-    background: #4a4a4a;
+    /*background: #4a4a4a;*/
 }
 
 #calendar-block .week:last-child {
@@ -813,13 +816,14 @@ td, th {
     text-align: center;
     vertical-align: top;
     cursor: pointer;
-    background: #4a4a4a;
+    /*background: #4a4a4a;*/
     position: relative;
     z-index: 100;
+    margin: 0 10px 0 10px;
 }
 
 #calendar-block .day.other {
-    color: rgba(255, 255, 255, .3);
+    color: rgba(78, 78, 78, 0.3);
 }
 
 #calendar-block .day.today {
@@ -830,7 +834,7 @@ td, th {
     font-size: 9px;
     text-transform: uppercase;
     margin-bottom: 5px;
-    color: rgba(255, 255, 255, .5);
+    /*color: rgba(255, 255, 255, .5);*/
     letter-spacing: 0.7px;
 }
 
@@ -877,7 +881,7 @@ td, th {
 
 #calendar-block .details {
     position: relative;
-    width: 420px;
+    width: 530px;
     height: 75px;
     background: rgba(164, 164, 164, 1);
     margin-top: 40px;
@@ -949,7 +953,7 @@ td, th {
 }
 
 #calendar-block .event.empty {
-    color: #eee;
+    /*color: #eee;*/
 }
 
 #calendar-block .event-category {
@@ -970,7 +974,7 @@ td, th {
     bottom: 0;
     width: 100%;
     height: 30px;
-    background: rgba(60, 60, 60, 1);
+    /*background: rgba(60, 60, 60, 1);*/
     line-height: 30px;
 }
 
