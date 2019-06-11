@@ -7,8 +7,8 @@ $_SESSION['is_admin'] = true;
 <header>
     <nav class="navbar bg-white text-dark justify-content-end">
         <ul class="nav">
-            <li class="nav-item">
-                <a class="nav-link" href="#">Link</a>
+            <li class="nav-item pr-4">
+                <i class="fa fa-user-o" aria-hidden="true"></i>
             </li>
         </ul>
     </nav>
