@@ -77,8 +77,8 @@ class Tree extends BaseModel
     public function initTest() {
         for ($i = 0; $i < 100; $i++) {
             $this->create([
-            'lat' => 47,82389089978659,
-            'lng' => 35,08800477209479,
+            'lat' => 47.82389089978659,
+            'lng' => 35.08800477209479,
             'stature' => random_int(100,500),
             'diameter' => random_int(100,500),
             'user_id' => 9,
