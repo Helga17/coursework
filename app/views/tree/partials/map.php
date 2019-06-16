@@ -54,7 +54,7 @@
         <button class="btn btn-remove" v-on:click="removeData()" v-bind:hidden="!isHavePermissionForChange">Видалити</button>
     </div>
     <div class="block">
-        <button class="btn btn-cancel" v-on:click="hideWindow()">Вихід</button>
+        <button class="btn btn-cancel" v-on:click="hideWindow()">Закрити</button>
     </div>
 </div>
 
