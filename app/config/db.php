@@ -2,7 +2,7 @@
 
 return [
     'hostname' => 'localhost',
-    'username' => 'root',
-    'password' => '1111',
+    'username' => 'pmauser',
+    'password' => 'YkCx6d2N605D',
     'dbname' => 'trees'
 ];
