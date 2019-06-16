@@ -114,6 +114,7 @@ class Tree extends BaseModel
         return $this->select('
             select state, `type`, count(id) `count`
             from tree
+            where is_active = 1
             group by `type`, state
         ');
     }
