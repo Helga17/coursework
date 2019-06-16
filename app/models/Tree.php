@@ -75,16 +75,16 @@ class Tree extends BaseModel
     }
     
     public function initTest() {
-        for ($i = 0; $i < 100; $i++) {
+        for ($i = 0; $i < 200; $i++) {
             $this->create([
             'lat' => 47.82389089978659,
             'lng' => 35.08800477209479,
             'stature' => random_int(100,500),
             'diameter' => random_int(100,500),
             'user_id' => 9,
-            'type_id' => random_int(1, 12),
+            'type' => random_int(1, 12),
             'is_active' => 1,
-            'condition_id' => random_int(1, 3),
+            'state' => random_int(1, 3),
         ]);
         }
     }
