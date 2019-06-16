@@ -80,7 +80,7 @@ class Tree extends BaseModel
             'lat' => 47,82389089978659,
             'lng' => 35,08800477209479,
             'stature' => random_int(100,500),
-            'diameter'' => random_int(100,500),
+            'diameter' => random_int(100,500),
             'user_id' => 9,
             'type_id' => random_int(1, 12),
             'is_active' => 1,
