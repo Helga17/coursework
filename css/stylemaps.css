@@ -126,7 +126,7 @@ input[type=checkbox] {
 
 .filters > div {
     text-align: left;
-    background: rgba(1, 1, 1, 0.5);
+    background: rgba(1, 1, 1, 0.1);
     padding: 5px;
     border-radius: 5px;
 }
@@ -262,19 +262,19 @@ input[type=file] {
 }
 
 input[type=number] {
-    width: calc(100% - 44px) !important;
+    width: 100% !important;
 }
 
-.btn-save {
-    background-color: #ff6efb;
+.tree-form .btn-save {
+    background-color: #ffe615;
 }
 
-.btn-remove {
-    background-color: #fd5050;
+.tree-form .btn-remove {
+    background-color: #cc4545;
 }
 
-.btn-cancel {
-    background-color: #85ff84;
+.tree-form .btn-cancel {
+    background-color: #1cad2c;
 }
 
 .authentication {
@@ -285,7 +285,7 @@ input[type=number] {
     z-index: 999;
 }
 
-.modal {
+.modal-form  {
     position: absolute;
     left: 50%;
     transform: translate(-50%, 0);
@@ -524,7 +524,7 @@ hr {
     margin-bottom: 25px;
 }
 
-.modal {
+.modal-form  {
     background-color: #fefefe;
     position: absolute;
     left: 50%;
@@ -717,7 +717,7 @@ td, th {
     transform: translate3d(0, 0, 0);
     width: 560px;
     margin: 0 auto;
-    height: 620px;
+    height: 650px;
     overflow: hidden;
 }
 
@@ -866,8 +866,8 @@ td, th {
     background: rgba(156, 202, 235, 1);
 }
 
-#calendar-block .orange {
-    background: rgba(247, 167, 0, 1);
+#calendar-block .red {
+    background: rgb(255, 0, 0);
 }
 
 #calendar-block .green {
@@ -878,11 +878,13 @@ td, th {
     background: rgba(249, 233, 0, 1);
 }
 
+#calendar-block .black {
+    background: rgba(0, 0, 0, 1);
+}
+
 #calendar-block .details {
     position: relative;
     width: 530px;
-    height: 75px;
-    background: rgba(164, 164, 164, 1);
     margin-top: 40px;
     border-radius: 4px;
 }
@@ -901,19 +903,18 @@ td, th {
 
 #calendar-block .arrow {
     position: absolute;
-    top: -5px;
+    top: -12px;
     left: 50%;
-    margin-left: -2px;
+    margin-left: -25px;
     width: 0px;
     height: 0px;
     border-style: solid;
-    border-width: 0 5px 5px 5px;
-    border-color: transparent transparent rgba(164, 164, 164, 1) transparent;
+    border-width: 0 10px 10px 10px;
+    border-color: transparent transparent rgb(0, 134, 3) transparent;
     transition: all 0.7s ease;
 }
 
 #calendar-block .events {
-    height: 75px;
     padding: 7px 0;
     overflow-y: auto;
     overflow-x: hidden;
@@ -972,7 +973,6 @@ td, th {
     position: absolute;
     bottom: 0;
     width: 100%;
-    height: 30px;
     /*background: rgba(60, 60, 60, 1);*/
     line-height: 30px;
 }
@@ -999,8 +999,8 @@ td, th {
     background: rgba(156, 202, 235, 1);
 }
 
-#calendar-block .entry.orange:after {
-    background: rgba(247, 167, 0, 1);
+#calendar-block .entry.red:after {
+    background: rgba(255, 0, 0, 1);
 }
 
 #calendar-block .entry.green:after {
@@ -1009,6 +1009,10 @@ td, th {
 
 #calendar-block .entry.yellow:after {
     background: rgba(249, 233, 0, 1);
+}
+
+#calendar-block .entry.black:after {
+    background: rgba(0, 0, 0, 1);
 }
 
 @-webkit-keyframes moveFromTopFade {

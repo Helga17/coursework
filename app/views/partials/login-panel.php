@@ -1,9 +1,7 @@
 <?php
 ?>
-<i class="fa fa-child" v-on:click="showAuthenticationForm()"></i>
-
 <div class="authentication" v-bind:hidden="hiddenAuthenticationForm">
-    <div class="modal">
+    <div class="modal-form">
         <span v-on:click="closeAuthenticationForm()" class="close" title="Close Modal">&times;</span>
         <div class="container">
             <img src="images/trees.png" alt="">

@@ -13,17 +13,17 @@
 <!DOCTYPE html>
 <html>
 <?php
-require_once('./app/views/partials/header.php');
+require_once(__DIR__ .'/header.php');
 $isInSession = isset($_SESSION['id']);
 ?>
 <body>
 <div id="app">
-    <!--<div class="logo">
-        <img src="/images/logo.png">
+    <?php require_once (__DIR__ . '/nav-bar.php'); ?>
+    <?php if (!isset($_SESSION['id'])): ?>
+    <div class="menu-aurh">
+        <?php require_once(__DIR__ . '/login-panel.php'); ?>
     </div>
-    <div class="menu">
-        <?php /*require_once(__DIR__ . (isset($_SESSION['id']) ? '/nav-bar.php' : '/login-panel.php')); */?>
-    </div>-->
+    <?php endif; ?>
     <div class="content">
 
         <?php if (isset($trees)): ?>
@@ -33,7 +33,8 @@ $isInSession = isset($_SESSION['id']);
                     states = JSON.parse('<?= json_encode($conditions) ?>'),
                     types = JSON.parse('<?= json_encode($types) ?>'),
                     isInSession = '<?= $isInSession ?>' == true,
-                    isAdmin = '<?= $isInSession ? $_SESSION['is_admin'] : false ?>' == true;
+                    isAdmin = '<?= $isInSession ? $_SESSION["is_admin"] : false ?>' == true,
+                    userId = '<?= $isInSession ? $_SESSION["id"] : '0' ?>';
             </script>
         <?php endif; ?>
 

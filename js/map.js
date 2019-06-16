@@ -6,7 +6,6 @@ let app = new Vue({
         hiddenWindow: true,
         hiddenAuthenticationForm: true,
         isAuthorization: false,
-        isDisabled: true,
         isEdit: false,
         isNew: false,
         trees : [],
@@ -21,6 +20,9 @@ let app = new Vue({
         userEmail: '',
         userPassword: '',
         userRepeatingPassword: '',
+        isHavePermissionForChange: false,
+        isAdmin: false,
+        userId: 0,
     },
     methods: {
         getDefaultTree: function () {
@@ -43,19 +45,21 @@ let app = new Vue({
             this.isNew = false;
             this.changedTree = this.getDefaultTree();
             this.hiddenAuthenticationForm = true;
+            this.isHavePermissionForChange = false;
         },
 
         //открытие окна для создания дерева
         openWindowForCreating: function() {
             this.refreshData();
             this.isNew = true;
+            this.isHavePermissionForChange = true;
             this.hiddenWindow = false;
         },
 
         //сохраняет введенные данные
         saveData: function() {
             let self = this, tree = self.changedTree;
-            tree.is_active = !self.isDisabled;
+            tree.is_active = self.isAdmin;
             if (self.isNew) {
                 axios.post('/addTree', tree)
                     .then((response) => {
@@ -134,6 +138,7 @@ let app = new Vue({
                 });
                 this.hiddenWindow = false;
                 this.isEdit = true;
+                this.isHavePermissionForChange = this.isAdmin || this.changedTree.user_id * 1 === this.userId || !this.changedTree.is_active;
             });
         },
 
@@ -216,7 +221,8 @@ let app = new Vue({
             }
         });
         let self = this;
-        this.isDisabled = !isAdmin;
+        this.isAdmin = isAdmin;
+        this.userId = userId * 1;
         this.trees = trees;
         this.states = states;
         this.types = types;
@@ -232,7 +238,7 @@ let app = new Vue({
         this.map.addListener('click', function (event) {
             //получаем координаты
             let latLng = event.latLng;
-            if ((self.isEdit || self.isNew) && !self.isDisabled) {
+            if ((self.isEdit || self.isNew) && self.isHavePermissionForChange) {
                 self.changedTree.lat = latLng.lat();
                 self.changedTree.lng = latLng.lng();
             }

@@ -46,7 +46,14 @@ class Tree extends BaseModel
     }
 
     private function getTreesSql(): string {
-        return 'select * from tree';
+        $where = '';
+        if (!isset($_SESSION['is_admin']) || !$_SESSION['is_admin']) {
+            $where .= ' where is_active = 1';
+            if (isset($_SESSION['id'])) {
+                $where .= ' or user_id = ' . $_SESSION['id'];
+            }
+        }
+        return 'select * from tree' . $where;
     }
 
     private function checkIsCreator() {

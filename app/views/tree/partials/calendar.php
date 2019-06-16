@@ -8,8 +8,17 @@
 
     function runScript() {
         !function () {
-
             var today = moment();
+            moment.updateLocale('en', {
+                weekdaysShort : ["Ндл", "Пнд", "Втр", "Срд", "Чтв", "Птн", "Сбт"],
+                months : [
+                    "Січень", "Лютий", "Березень", "Квітень", "Травень", "Червень",
+                    "Липень", "Серпень", "Вересень", "Жовтень", "Листопад", "Грудень"
+                ],
+                week: {
+                    dow: 6
+                }
+            });
 
             function Calendar(selector, events) {
                 this.el = document.querySelector(selector);
@@ -100,7 +109,7 @@
 
             Calendar.prototype.backFill = function () {
                 var clone = this.current.clone();
-                var dayOfWeek = clone.day();
+                var dayOfWeek = clone.day() - 1;
 
                 if (!dayOfWeek) {
                     return;
@@ -117,11 +126,11 @@
                 var clone = this.current.clone().add('months', 1).subtract('days', 1);
                 var dayOfWeek = clone.day();
 
-                if (dayOfWeek === 6) {
+                if (dayOfWeek === 7) {
                     return;
                 }
 
-                for (var i = dayOfWeek; i < 6; i++) {
+                for (var i = dayOfWeek; i < 7; i++) {
                     this.drawDay(clone.add('days', 1));
                 }
             }
@@ -136,7 +145,7 @@
             }
 
             Calendar.prototype.getWeek = function (day) {
-                if (!this.week || day.day() === 0) {
+                if (!this.week || day.day() === 1) {
                     this.week = createElement('div', 'week');
                     this.month.appendChild(this.week);
                 }
@@ -266,7 +275,7 @@
 
                 if (!events.length) {
                     var div = createElement('div', 'event empty');
-                    var span = createElement('span', '', 'No Events');
+                    var span = createElement('span', '', 'На цю дату нічого не заплановано');
 
                     div.appendChild(span);
                     wrapper.appendChild(div);
@@ -296,6 +305,10 @@
             }
 
             Calendar.prototype.drawLegend = function () {
+                var legendBlock = document.getElementById('calendar').getElementsByClassName('legend');
+                if (legendBlock.length) {
+                    legendBlock[0].parentNode.removeChild(legendBlock[0]);
+                }
                 var legend = createElement('div', 'legend');
                 var calendars = this.events.map(function (e) {
                     return e.calendar + '|' + e.color;
@@ -346,37 +359,36 @@
         }();
 
         !function () {
-            var data = {
-                '2019-5': [
-                    {eventName: 'Lunch Meeting w/ Mark', calendar: 'Work', color: 'orange', dayOfMount: 23},
-                    {eventName: 'Game vs Portalnd', calendar: 'Sports', color: 'blue', dayOfMount: 12},
-                    {eventName: 'Pick up from Soccer Practice', calendar: 'Kids', color: 'yellow', dayOfMount: 29},
-                    {eventName: 'Teach Kids to Code', calendar: 'Other', color: 'green', dayOfMount: 8},
-                ],
-                '2019-6': [
-                    {eventName: 'Interview - Jr. Web Developer', calendar: 'Work', color: 'orange', dayOfMount: 12},
-                    {eventName: 'Game vs Houston', calendar: 'Sports', color: 'blue', dayOfMount: 17},
-                    {eventName: 'Parent/Teacher Conference', calendar: 'Kids', color: 'yellow', dayOfMount: 23},
-                    {eventName: 'Startup Weekend', calendar: 'Other', color: 'green', dayOfMount: 2}
-                ],
-                '2019-7': [
-                    {eventName: 'Demo New App to the Board', calendar: 'Work', color: 'orange', dayOfMount: 12},
-                    {eventName: 'Dinner w/ Marketing', calendar: 'Work', color: 'orange', dayOfMount: 9},
-                    {eventName: 'Game vs Denver', calendar: 'Sports', color: 'blue', dayOfMount: 7},
-                    {eventName: 'Game vs San Degio', calendar: 'Sports', color: 'blue', dayOfMount: 24},
-                    {eventName: 'School Play', calendar: 'Kids', color: 'yellow', dayOfMount: 12},
-                    {eventName: 'Ice Cream Night', calendar: 'Kids', color: 'yellow', dayOfMount: 16},
-                    {eventName: 'Free Tamale Night', calendar: 'Other', color: 'green', dayOfMount: 3},
-                    {eventName: 'Bowling Team', calendar: 'Other', color: 'green', dayOfMount: 11},
-                ],
+            var events, calendar, colors = {
+                'Спилювання дерев в аварійному стані': 'black',
+                'Реконструкція парку': 'blue',
+                'Посадка дерев': 'green',
+                'Планове спилювання дерев': 'red',
+                'Перевірка стану дерев': 'yellow',
             };
+            axios.get('/api/data.json')
+                .then(function (response) {
+                    events = response.data;
+                    createCalendar();
+                });
 
+            function createCalendar() {
+                var data = {};
+                events.forEach(function (event) {
+                    var date = event.date.split('.'), month = date[2] + '-' + (date[1] * 1);
+                    if (typeof data[month] === 'undefined') {
+                        data[month] = [];
+                    }
+                    data[month].push({
+                        eventName: event.description,
+                        calendar: event.type,
+                        color: colors[event.type],
+                        dayOfMount: date[0] * 1,
+                    });
+                });
 
-            function addDate(ev) {
-
+                calendar = new Calendar('#calendar', data);
             }
-
-            var calendar = new Calendar('#calendar', data);
 
         }();
 

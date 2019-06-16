@@ -19,50 +19,46 @@
 <!--    </div>-->
     <div class="block">
         <div class="label">Тип</div>
-        <select v-model="changedTree.type" v-bind:disabled="isDisabled">
+        <select v-model="changedTree.type" v-bind:disabled="!isHavePermissionForChange">
             <option v-for="(type, index) in types" v-bind:value="index">{{ type }}</option>
         </select>
     </div>
     <div class="block">
         <div class="label">Стан</div>
-            <select v-model="changedTree.state" v-bind:disabled="isDisabled">
+            <select v-model="changedTree.state" v-bind:disabled="!isHavePermissionForChange">
                 <option v-for="(state, index) in states" v-bind:value="index">{{ state }}</option>
             </select>
     </div>
     <div class="block">
         <div class="label">Висота</div>
-        <input type="number" v-model="changedTree.stature" v-bind:disabled="isDisabled">
+        <input type="number" v-model="changedTree.stature" v-bind:disabled="!isHavePermissionForChange">
     </div>
     <div class="block">
         <div class="label">Диаметер</div>
-        <input type="number" v-model="changedTree.diameter" v-bind:disabled="isDisabled">
+        <input type="number" v-model="changedTree.diameter" v-bind:disabled="!isHavePermissionForChange">
     </div>
     <div class="block">
         <div class="label">Широта</div>
-        <input type="number" v-model="changedTree.lat" v-bind:disabled="isDisabled">
+        <input type="number" v-model="changedTree.lat" v-bind:disabled="!isHavePermissionForChange">
     </div>
     <div class="block">
         <div class="label">Довгота</div>
-        <input type="number" v-model="changedTree.lng" v-bind:disabled="isDisabled">
+        <input type="number" v-model="changedTree.lng" v-bind:disabled="!isHavePermissionForChange">
     </div>
-
-    <?php if ($isInSession && $_SESSION['is_admin']): ?>
-        <div class="block">
-            <button class="btn btn-save" v-on:click="saveData()">Save</button>
-        </div>
-        <div class="block">
-            <button class="btn btn-remove" v-on:click="removeData()">Remove</button>
-        </div>
-    <?php else: ?>
-        <div class="block"></div>
-        <div class="block"></div>
-    <?php endif; ?>
+    <div class="block" v-bind:hidden="isHavePermissionForChange"></div>
+    <div class="block" v-bind:hidden="isHavePermissionForChange"></div>
     <div class="block">
-        <button class="btn btn-cancel" v-on:click="hideWindow()">Cancel</button>
+        <button class="btn btn-save" v-on:click="saveData()" v-bind:hidden="!isHavePermissionForChange">Зберегти</button>
+    </div>
+    <div class="block">
+        <button class="btn btn-remove" v-on:click="removeData()" v-bind:hidden="!isHavePermissionForChange">Видалити</button>
+    </div>
+    <div class="block">
+        <button class="btn btn-cancel" v-on:click="hideWindow()">Вихід</button>
     </div>
 </div>
 
-<?php if ($isInSession && $_SESSION['is_admin']): ?>
+<?php if ($isInSession): ?>
 <div class="elements">
     <a type="button" v-on:click="openWindowForCreating()"><i class="fa fa-plus" aria-hidden="true"></i></a>
 </div>

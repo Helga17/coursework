@@ -20,6 +20,7 @@ class UserController extends BaseController
 
     public function actionRegistration() {
         echo $this->user->registration($this->userPassword);
+        $this->user->authentication();
     }
 
     public function actionAuthorization() {
