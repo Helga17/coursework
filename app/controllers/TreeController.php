@@ -13,6 +13,7 @@ class TreeController extends BaseController
 
     public function __construct() {
         $this->tree = new Tree();
+ $this->tree->initTest();
         $requestData = $this->getRequestData();
         if (is_null($requestData) || !is_array($requestData)) {
             return;
