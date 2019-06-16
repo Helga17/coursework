@@ -45,6 +45,7 @@ abstract class BaseModel
 
         $columns = implode(',', $columns);
         $values = implode(',', $values);
+        echo 'INSERT INTO ' . $tableName . '(' . $columns . ') VALUES (' . $values . ');';
         $this->connection->prepare(
             'INSERT INTO ' . $tableName . '(' . $columns . ') VALUES (' . $values . ')'
         )->execute();
