@@ -285,6 +285,15 @@ input[type=number] {
     z-index: 999;
 }
 
+.authentication-button{
+    border: none;
+    padding: 10px 20px;
+    width: 94%;
+    background: lavender;
+}
+
+
+
 .modal-form  {
     position: absolute;
     left: 50%;
@@ -583,6 +592,7 @@ hr {
     border: 2px solid #f1f1f1;
     border-top: none;
     padding: 5px;
+    padding-left: 22px;
 }
 
 i, button {
