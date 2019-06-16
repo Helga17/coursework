@@ -20,7 +20,7 @@
                 <div class="col-md-12">
                     <div class="card">
                         <div class="card-header">
-                            Нрафік кількості дерев за станом
+                            Графік кількості дерев за станом
                         </div>
                         <div class="card-body">
                             <?php require_once (__DIR__ . '/partials/graph.php'); ?>
